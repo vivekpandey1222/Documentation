@@ -28,14 +28,14 @@ Podman is an open-source container management tool that allows users to manage c
 
 **Update system:-**
 ```
-Sudo apt update 
+sudo apt update 
 ```
 **Podman Install:-**
 ```
-Sudo apt install podman 
+sudo apt install podman 
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ sudo apt install podman
-\[sudo] password for vivek:
+[sudo] password for vivek:
 Reading package lists... Done
 Building dependency tree   
 Reading state information... Done
@@ -48,12 +48,12 @@ system, like installing software.
 
 **- apt:** It is used to handle the installation, removal, and upgrading of software packages.
 
-\- **install:** This tells the magic tool that you want to put a new program on your
+- **install:** This tells the magic tool that you want to put a new program on your
 computer.
 
 **Check podman :-**
 ```
-Which podman 
+which podman 
 ```
 
 vivek\@vivek-HP-EliteBook-840-G2:\~$ which podman
@@ -72,15 +72,14 @@ Minio is an open-source object storage server that is compatible with S3. Minio 
 
 **Setup Minio:-**
 
-Vim pod-minio.sh
+vim pod-minio.sh
 
 vivek\@vivek-HP-EliteBook-840-G2:\~$ cat pod-minio.sh
-
-\#!/bin/bash
 ```
-podman run -dt -p 9001:9000 -e MINIO\_ROOT\_USER=xxxxx -e MINIO\_ROOT\_PASSWORD=xxxxxxxx --name minio -v /home/vivek/minio:/data 
-docker.io/minio/minio server /data --console-address ":9001"
-``````
+#!/bin/bash
+
+podman run -dt -p 9001:9000 -e MINIO_ROOT_USER=xxxxx -e MINIO_ROOT_PASSWORD=xxxxxxxx --name minio -v /home/vivek/minio:/data docker.io/minio/minio server /data --console-address ":9001"
+```
 `-podman run: `This command is used to run a container using Podman.
 
 `-dt: `The -d flag runs the container in the background (detached mode), and the -t  flag allocates a pseudo-TTY.
@@ -101,7 +100,7 @@ docker.io/minio/minio server /data --console-address ":9001"
 
 **Chmod +x ,This command  used to change file permissions.**
 ```
-Chmod +x pod-minio.sh:-
+chmod +x pod-minio.sh:-
 ```
 **Once the execute permission is granted, you can run the script** 
 ```
@@ -109,7 +108,7 @@ Chmod +x pod-minio.sh:-
 ```
 **Then create container and running container command** 
 ```
-Podman ps
+podman ps
 ```
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
@@ -124,11 +123,11 @@ After running the script, open your web browser and check the Minio server <http
 
 Testing Minio object storage  bucket using ansiblePlaybook
 
-**Install Ansible:-**
-``````
-Sudo apt install Ansible
-``````
-``````
+**install ansible:-**
+```
+sudo apt install ansible
+```
+```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install ansible
 [sudo] password for vivek:
 Reading package lists... Done
@@ -137,60 +136,60 @@ Reading state information... Done
 ansible is already the newest version (2.9.6+dfsg-1).
 O upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
 vivek@vivek-HP-EliteBook-840-G2:~$
-``````
+```
 
 **-Ansible:**Ansible is an open-source automation tool that helps you automate repetitive tasks. It allows you to define and manage your infrastructure code.
 
 **Check Ansible:-**
-``````
-Which ansible
-``````
-``````
+```
+which ansible
+```
+```
 vivek@vivek-HP-EliteBook-840-G2:~$ which ansible /usr/bin/ansible
 vivek@vivek-HP-EliteBook-840-G2:~$
-``````
+```
 **Using playbook create object Minio bucket:-**
 
 **Create directory:-**
-``````
-Touch minio-testing.txt
-``````
+```
+touch minio-testing.txt
+```
 **Then create yml file :-**
-````
-Vim minio-testing.yml
-````
+```
+vim minio-testing.yml
+```
 
 ```
 ---
 - hosts: localhost
 connection: local
-gather\_facts: 
+gather_facts: 
   tasks:
 
 - name: Simple PUT operation (Upload-Single file)
 
-   aws\_s3:
-     aws\_access\_key: xxxxx # Replace with your Minio access key
-     aws\_secret\_key: xxxxxxxx # Replace with your Minio secret key
+   aws_s3:
+     aws_access_key: xxxxx # Replace with your Minio access key
+     aws_secret_key: xxxxxxxx # Replace with your Minio secret key
      bucket: project1
-     object: minio\_testing.txt
-     src: minio\_testing.txt
+     object: minio_testing.txt
+     src: minio_testing.txt
      mode: put
-     s3\_url: http\://127.0.0.1:9001
+     s3_url: http://127.0.0.1:9001
      region: us-east-1
      encrypt: false
    vars:
 
-          # ansible\_python\_interpreter: /usr/bin/python3
-``````
+          # ansible_python_interpreter: /usr/bin/python3
+```
 
 **Then run command for testing :-**
-``````
+```
 ansible-playbook minio-testing.yml -v
-``````
+```
 ![](https://lh7-us.googleusercontent.com/sjYeoLji9K-LpKeuSt0l8qK_0KwYxdMXIaoUlYHMUiO4zzLQfUZhH622YGnFfwaaK5B6fbvqUrtR0pf3WmaaJovjPuisiq7l_Yv26dvN9jo74TTI3C5Drd9ADH1_Ffgeq8STse_dMbOJSDNlBjTlDeE)
 
-**Here you can see my minio\_testing.txt file** 
+**Here you can see my minio_testing.txt file** 
 
 ![](https://lh7-us.googleusercontent.com/4NsRKGPOTe28FqJU_drov5e9fZfhR2_QepfePS_Lq_L50--oeh_Ztcmqo2_Nwmg7h-7kObfa4zmCSU6DT5bvY_vlZ5oxzEP7ZoH8b767MDidP3PyFcQBXME61vh6gnSOsZyMSp-dKPZDI48kOsMfAgk)
 
@@ -206,9 +205,9 @@ ansible-playbook minio-testing.yml -v
 
 Note:- If an error while running this command, (ansible-playbook minio-testing.yml -v)
 Then check python3  library
-``````
-Pip install boto3
-``````
+```
+pip install boto3
+```
 ![](https://lh7-us.googleusercontent.com/fTEBh4CwHD27YB77UQEbTv06w2221q2nknt-k-pEJgX8h3NUuC_uOQt0NrhRvclpMUpNR_hFV0bsIURbcuBuiJl2MS3jFNl509jbx1j2fA7KCy8KiI0pV11Lveice--AkB8dn3-DnkpKLo1PJE-m00E)
 
 **-pip:** It is used to install and manage Python packages.
@@ -226,12 +225,12 @@ Redmine is a free and open source, web-based project management and issue tracki
 PostgreSQL is a powerful open-source relational database management system (RDBMS) that performs a variety of tasks related to storing, organizing, and retrieving structured data. 
 
 **Redmine Setup:-**
-``````
-Vim redmine.sh
+```
+vim redmine.sh
 
 vivek\@vivek-HP-EliteBook-840-G2:\~$ cat redmine.sh
 
-\#!/bin/bash
+#!/bin/bash
 
 podman pod create --name postgres-redmine --publish 3000:3000 --publish 5432:5432
 
@@ -253,22 +252,22 @@ podman run -dt \
 -e REDMINE_DB_PASSWORD=xxxxxx \
 -e REDMINE_DB_DATABASE=redminedb \
 -e AWS_REGION=us-east-1 \
--e AWS_ACCESS_KEY_ID=
--e AWS_SECRET_ACCESS_KEY=
+-e AWS_ACCESS_KEY_ID= \
+-e AWS_SECRET_ACCESS_KEY= \
 redmine
-``````
+```
 **Chmod +x ,command is used to add execute permission to a fi**le
-``````
-Chmod +x redmine.sh
-``````
+```
+chmod +x redmine.sh
+```
 **Once the execute permission is granted, you can run the script** 
-``````
+```
 ./redmine.sh
-``````
+```
 **Then create container and running container command** 
-``````
-Podman ps
-``````
+```
+podman ps
+```
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
 ```
@@ -286,25 +285,25 @@ Amazon S3, (Simple Storage Service) is a widely used object storage service prov
 **S3 Plugins Install on redmine**
 
 Root directory to redmine
-``````
-Podman exec -it \<container name> /bin/bash
-``````
-``````
+```
+podman exec -it \<container name> /bin/bash
+```
+```
 vivek@vivek-HP-EliteBook-840-G2:-$ podman exec it redmine-app-new /bin/bash 
 root@postgres-redmine:/usr/src/redmine#
-``````
-**-Podman exec :** This command for executing  within a running container.
+```
+**-podman exec :** This command for executing  within a running container.
 
 **--it:** It is commonly used for running an interactive shell inside the container.
 
-**-Container name:** This is a place for the name or ID of the container.
+**-container name:** This is a place for the name or ID of the container.
 
 **-/bin/bash:** This command will be executed inside the specified container.
 
 **Now run this command on redmine container**
-``````
+```
 git clone https\://github.com/redmica/redmica\_s3.git plugins/redmica\_s3
-``````
+```
 **-git clone:** This is the Git command used to clone a repository. Cloning is the process of creating a local copy of a Git repository on your machine.
 
 **-https\://github.com/redmica/redmica\_s3.git :** This is the URL of the Git repository.
@@ -314,57 +313,57 @@ git clone https\://github.com/redmica/redmica\_s3.git plugins/redmica\_s3
 
 
 **Then run this command and edit config/s3.yml with your favorite editor** 
-``````
+```
 cp plugins/redmica\_s3/config/s3.yml.example config/s3.yml
-``````
-``````
-Vim config/s3.yml 
+```
+```
+vim config/s3.yml 
 
 root\@postgres-redmine:/usr/src/redmine# cat config/s3.yml
 
 production:
 
-  access\_key\_id: admin key
-  secret\_access\_key: xxxxxxxxx
+  access_key_id: admin key
+  secret_access_key: xxxxxxxxx
   bucket: redmine-data
   folder: case-attachment
-  endpoint: http\://192.168.122.1:9000
-  thumb\_folder:
-  import\_folder:
+  endpoint: http://192.168.122.1:9000
+  thumb_folder:
+  import_folder:
   region: us-east-1
 
 
 development:
 
-  access\_key\_id:
-  secret\_access\_key:
+  access_key_id:
+  secret_access_key:
   bucket:
   folder:
   endpoint:
-  thumb\_folder:
-  import\_folder:
+  thumb_folder:
+  import_folder:
   region:
 
-\# Uncomment this to run plugin tests with standart redmine script
-\# test:
-\#   access\_key\_id:
-\#   secret\_access\_key:
-\#   bucket:
-``````
+# Uncomment this to run plugin tests with standart redmine script
+# test:
+#   access_key_id:
+#   secret_access_key:
+#   bucket:
+```
 Now download dependency
 
-Bundle install 
-``````
-root\@postgres-redmine:/usr/src/redmine# Bundle install
-``````
+bundle install 
+```
+root\@postgres-redmine:/usr/src/redmine# bundle install
+```
 **-bundle:** Bundle is a tool used in Ruby programming to keep track of and manage the different pieces of code, called "gems," that a project depends on. 
 
 Then run this command 
 
 rake redmine:plugins
-``````
+```
 root\@postgres-redmine:/usr/src/redmine#rake redmine:plugins
-``````
+```
 ```
 root@postgres-redmine:/usr/src/redmine/config# rake redmine:plugins (in /usr/src/redmine)
 root@postgres-redmine:/usr/src/redmine/config#
@@ -379,12 +378,12 @@ Click on the administration option and click on the plugins options .
 ![](https://lh7-us.googleusercontent.com/4T-tqjRr8-2iEd0MMKIzVHzuR3pyE82U3s6zUYWk--JiV1ZmcGVm1EpaS2IvKhg1ITMJsiywLtnoWFFryxRDXluXW2n3n5L5HjrbyykNhhFrZwEtJeOr4fSv20FqZotyhqgS9tRTRUTzvgyIONwRjys)
 
 **Restart your pod and server:-**
-``````
-Podman pod restart postgres-redmine
-``````
-``````
-Podman ps
-``````
+```
+podman pod restart postgres-redmine
+```
+```
+podman ps
+```
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman pod restart postgres-redmine 
 9d33b0c6d766af131f72070d5c51506daa2464ca6dc1e0e98e6ac1c6b3338ec0
@@ -397,11 +396,11 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 
 **Create image of container**
 
-Commit command is used to create image of container 
-``````
+commit command is used to create image of container 
+```
 podman commit redmine-app-new localhost/redmine-app-new-pandey-v1
-``````
-``````
+```
+```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman commit redmine-app-new localhost/redmi ne-app-new-pandey-v1
 Getting image source signatures
 Copying blob cb4596cc1454 skipped: already exists
@@ -421,11 +420,11 @@ Writing manifest to image destination
 Storing signatures
 3554759189d2c256c472922754641ef3d90a9ebe7c07ab3c3960c4cccdf77514
 vivek@vivek-HP-EliteBook-840-G2:~$
-``````
+```
 **Search container image**
-``````
-Podman images
-``````
+```
+podman images
+```
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman images
 REPOSITORY                             TAG          IMAGE ID      CREATED       SIZE
@@ -478,16 +477,16 @@ Here you can see all data has been shifted to Object storage
 **Artefact #3**
 
 Data Has been deleted from local folder now local folder is blank
-``````
-Podman exec -it postgres-redmine /bin/bash
-``````
-``````
+```
+podman exec -it postgres-redmine /bin/bash
+```
+```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman exec it redmine-app-new /bin/bash
 root@postgres-redmine:/usr/src/redmine#
-``````
-``````
- Ls and cd files 
-``````
+```
+```
+ ls and cd files 
+```
 ```
 root@postgres-redmine:/usr/src/redmine# ls
 CONTRIBUTING.md  app	       db     log	    sqlite
@@ -511,9 +510,9 @@ Able to download data from same ticket
 ## 6.Generate Yaml File:-
 
 Run this command to generate a yaml file.
-``````
+```
 podman generate kube \<pod name> > \<File Name>.yaml
-``````
+```
 **-podman generate kube:** This command is used to generate a Kubernetes YAML manifest file for a specified container or pod. 
 
 **-\<pod name>:** This is the name of your pod.
@@ -525,16 +524,16 @@ podman generate kube \<pod name> > \<File Name>.yaml
 —---------------------------------------------------------------------------------------------------------------------------.
 
 ## 7.Launch Pod using yaml:-
-``````
+```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman generate kube postgres-redmine > kube-postgres-redmine.yaml
-``````
+```
 **Now you can see here yaml file eg-   kube-postgres-redmine.yaml:-**
-``````
+```
 **vivek\@vivek-HP-EliteBook-840-G2:\~$** cat kube-postgres-redmine.yaml
 
-\# Save the output of this file and use kubectl create -f to import
-\# it into Kubernetes.
-\# Created with podman-3.4.2
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+# Created with podman-3.4.2
 apiVersion: v1
 kind: Pod
 metadata:
@@ -545,7 +544,7 @@ app: postgres-redmine
 spec:
   containers:
   - args:
-\- postgres
+- postgres
 image: docker.io/library/postgres:latest
 name: redmine-postgres-intigration
 env:
@@ -616,22 +615,22 @@ name: home-vivek-redmine-postgres-uat-host-0
 persistentVolumeClaim:
    claimName: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1
 status: {}
-``````
+```
 **vivek\@vivek-HP-EliteBook-840-G2**
 
 **Remove pod :**
-``````
+```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman pod rm postgres-redmine --force
-``````
+```
 3d03764227139c340b7dabb6cca395930fb9d998f939652ce122b6bb569327cc
 
 **Now Create pod using yaml command:**
 
 **podman play kube kube-podtgres-redmine.yaml**
-``````
+```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman play kube kube-postgres-redmine.yaml
-``````
-``````
+```
+```
 Trying to pull docker.io/library/postgres:latest...
 Getting image source signatures
 Copying blob b66a9305e34c done  
@@ -657,7 +656,7 @@ Containers:
 a18e224c9b830799ad236f4ae50b7af077edc6eacffc07440c0f7ae57577f5da
 f2d8f00f0bc3df153916cbadaf39c9f60a2cf01080a50b80dea87f28d704fce0
 vivek\@vivek-HP-EliteBook-840-G2:\~$
-``````
+```
 -**podman play kube:**This command is used  for deploying and managing containers in a Kubernetes cluster using Podman. 
 
 **-kube-postgres-redmine.yaml:** This is the name of the Kubernetes YAML manifest file that you want to deploy.
