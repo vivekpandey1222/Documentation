@@ -111,8 +111,11 @@ Chmod +x pod-minio.sh:-
 ```
 Podman ps
 ```
-![](https://lh7-us.googleusercontent.com/uxE6QBaadnKYIPPqXhC_i-Gq1-bez2R_U6vFOT8-QJI0Rg4DaKMzp6RAgu_3huGuA1I8iZpfq1OVisrfWnTlJOzTdYAG7U9A8TRlxY7l44K31SIPxee_iA3cbLIQ6TLwd5R8mVgw-srnHnYqT9Xoxek)
-
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
+CONTAINER ID  IMAGE                                     COMMAND               CREATED       STATUS                PORTS                                           NAMES
+7bf686d7d295  docker.io/minio/minio:latest              server /data --co...  3 weeks ago   Up About an hour ago  0.0.0.0:9000-9001->9000-9001/tcp                minio
+```
 After running the script, open your web browser and check the Minio server <http://localhost:9001>
 
 —----------------------------------------------------------------------------------------------------------------------------
@@ -266,8 +269,9 @@ Chmod +x redmine.sh
 ``````
 Podman ps
 ``````
-![](https://lh7-us.googleusercontent.com/UZBJJUec8elzfUT1l4m13Ro4TlqpvT1JBbYkzuRbjlErAGuUq2cF6INFk0U55AHwoQShsk9RimvGZhwRfYVcpJyBHQhkQuJG5IlPPJ9gSRVMxNNw5bcnfXJ4U_aRylEyQB89Ix1z52bXxRsCA4N1CBk)
-
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
+```
 After running the script, open your web browser and check the Minio server <http://localhost:3000>
 
 And sign in by default username and password “admin”.
@@ -361,8 +365,11 @@ rake redmine:plugins
 ``````
 root\@postgres-redmine:/usr/src/redmine#rake redmine:plugins
 ``````
-![](https://lh7-us.googleusercontent.com/VwRn6CDxqTMVKp9u2w61P9ABihLYQlQnhcrWiZ1EklcNTJ4YUbeuHfdH4YNCa5NPeAONYQWHPCuw24KK7JFQgJSK7xtTCUvOXqdiVifGR1zljUArTIgYP7KykLP2-Jv4-KHMErLDcmD6NB1xkO6VbD4)
-
+```
+root@postgres-redmine:/usr/src/redmine/config# rake redmine:plugins (in /usr/src/redmine)
+root@postgres-redmine:/usr/src/redmine/config#
+root@postgres-redmine:/usr/src/redmine/config#
+```
 **-Rake redmine:plugins:** is a Rake task designed for managing plugins in a Redmine installation.
 
 Now you can see the plugins in redmine : 
@@ -378,7 +385,15 @@ Podman pod restart postgres-redmine
 ``````
 Podman ps
 ``````
-![](https://lh7-us.googleusercontent.com/oeEXZvD0zzUyJog7KqkBDGJ0laL4Uysn_glWqAVpDp8HT1G4_iyT3UFGEPmK4ZT9KIACWHp6FSRJJLvcOGK-F86Xn_SQ7mstfaDBfizVbVwsY27NQx6H_v7047dpnjnXphcO6AxYVyAsZDWt3UJKW5E)
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ podman pod restart postgres-redmine 
+9d33b0c6d766af131f72070d5c51506daa2464ca6dc1e0e98e6ac1c6b3338ec0
+vivek@vivek-HP-EliteBook-840-G2:~$ podman pod ps
+POD ID        NAME              STATUS      CREATED       INFRA ID      # OF CONTAINERS
+9d33b0c6d766  postgres-redmine  Running     19 hours ago  0573a099e29e  3
+vivek@vivek-HP-EliteBook-840-G2:~$ 
+```
+
 
 **Create image of container**
 
@@ -411,8 +426,11 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ``````
 Podman images
 ``````
-****![](https://lh7-us.googleusercontent.com/ZdsPi_uPADh2EZP8TyeQqVRmAVuDk_-jqKxmXWf250ngrR9Ivqmt_mcVQINKPclv0tvfMSUYW1z2EBrptjBNsiSym4xh4ppsgPDPlG0eR_6a2VYCyVCVPxk0LEegYUA1VklgEzUVZRsNA0PtYLOXub8)****
-
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ podman images
+REPOSITORY                             TAG          IMAGE ID      CREATED       SIZE
+localhost/redmine-app-newvivek-v1      latest       b90a40dd470c  2 days ago    784 MB
+```
 —----------------------------------------------------------------------------------------------------------------------------
 
 ## 5.Testing and test case :-
@@ -470,8 +488,17 @@ root@postgres-redmine:/usr/src/redmine#
 ``````
  Ls and cd files 
 ``````
-![](https://lh7-us.googleusercontent.com/BHAGL0JbvCTEVLuGXBDxgNV9zgQMPca6RxCzPi9xtv1hQPQ5IX7sM1dzJLOHOVZZIVVSPC-3wAu2d5PeYSsgZlM6H6ckkoku_OrYCwA7OhtFC6YM-7g6a5aRSrNqO1VBGb6pjTb_Cffnt9btnt_zH-w)
-
+```
+root@postgres-redmine:/usr/src/redmine# ls
+CONTRIBUTING.md  app	       db     log	    sqlite
+Gemfile		 appveyor.yml  doc    package.json  test
+Gemfile.lock	 bin	       extra  plugins	    tmp
+README.rdoc	 config        files  public	    vendor
+Rakefile	 config.ru     lib    redminedb     yarn.lock
+root@postgres-redmine:/usr/src/redmine# cd files/
+root@postgres-redmine:/usr/src/redmine/files# ls
+root@postgres-redmine:/usr/src/redmine/files# 
+```
 
 **Artefact #4**
 
