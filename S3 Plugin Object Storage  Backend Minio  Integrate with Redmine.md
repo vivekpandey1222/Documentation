@@ -23,6 +23,7 @@ Distributor Id - Ubuntu
 
 Version - 20.04
 
+
 **Podman :-**
 
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
@@ -231,33 +232,33 @@ PostgreSQL is a powerful open-source relational database management system (RDBM
 vim redmine.sh
 ```
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ cat redmine.sh
-
-#!/bin/bash
-
+vivek@vivek-HP-EliteBook-840-G2:~$ cat redmine.sh 
 podman pod create --name postgres-redmine --publish 3000:3000 --publish 5432:5432
-
 podman run -dt \
 --pod postgres-redmine \
 --name redmine-postgres-intigration \
 -e POSTGRES_DB=redminedb \
--e POSTGRES_USER=xxxxx \
--e POSTGRES_PASSWORD=xxxxx \
+-e POSTGRES_USER=redmineuser \
+-e POSTGRES_PASSWORD=redmine123 \
 -e PGDATA=/var/lib/postgresql/data/pgdata \
 -v /home/vivek/redmine/postgres-uat:/var/lib/postgresql/data \
-postgres
+docker.io/library/postgres
+
+sleep 5
 
 podman run -dt \
 --pod postgres-redmine \
 --name redmine-app-new \
 -e REDMINE_DB_PORT=5432 \
--e REDMINE_DB_USERNAME=xxxxxx \
--e REDMINE_DB_PASSWORD=xxxxxx \
+-e REDMINE_DB_USERNAME=redmineuser \
+-e REDMINE_DB_PASSWORD=redmine123 \
 -e REDMINE_DB_DATABASE=redminedb \
 -e AWS_REGION=us-east-1 \
--e AWS_ACCESS_KEY_ID= \
--e AWS_SECRET_ACCESS_KEY= \
-redmine
+-e AWS_ACCESS_KEY_ID=lpKM3E9qzJ9PIB7Bqey3 \ #replace with minio key
+-e AWS_SECRET_ACCESS_KEY=3Yp1SMjwZYHQXfW9eT6DoW2MgwCtReKCl1QClNwJ \ #replace with minio secret key
+docker.io/library/redmine
+
+#-e REDMINE_DB_POSTGRES=localhost \
 ```
 **Chmod +x ,command is used to add execute permission to a fi**le
 ```
@@ -321,37 +322,35 @@ cp plugins/redmica\_s3/config/s3.yml.example config/s3.yml
 ```
 ```
 vim config/s3.yml
-
-root\@postgres-redmine:/usr/src/redmine# cat config/s3.yml
-
+```
+```
+root@postgres-redmine:/usr/src/redmine# cat config/s3.yml 
 production:
-
-  access_key_id: admin key
-  secret_access_key: xxxxxxxxx
-  bucket: redmine-data
-  folder: case-attachment
-  endpoint: http://192.168.122.1:9000
-  thumb_folder:
-  import_folder:
-  region: us-east-1
-
+  access_key_id: lpKM3E9qzJ9PIB7Bqey3
+  secret_access_key: 3Yp1SMjwZYHQXfW9eT6DoW2MgwCtReKCl1QClNwJ
+  bucket: redmine-data
+  folder: case-attachment
+  endpoint: http://192.168.122.1:9000
+  thumb_folder:
+  import_folder:
+  region: us-east-1
 
 development:
-
-  access_key_id:
-  secret_access_key:
-  bucket:
-  folder:
-  endpoint:
-  thumb_folder:
-  import_folder:
-  region:
+  access_key_id:
+  secret_access_key:
+  bucket:
+  folder:
+  endpoint:
+  thumb_folder:
+  import_folder:
+  region:
 
 # Uncomment this to run plugin tests with standart redmine script
 # test:
-#   access_key_id:
-#   secret_access_key:
-#   bucket:
+#   access_key_id:
+#   secret_access_key:
+#   bucket:
+
 ```
 Now download dependency
 
@@ -530,94 +529,101 @@ podman generate kube \<pod name> > \<File Name>.yaml
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman generate kube postgres-redmine > kube-postgres-redmine.yaml
 ```
+if you want edit this file then 
+```
+vim kube-postgres-redmine.yaml
+```
 **Now you can see here yaml file eg-   kube-postgres-redmine.yaml:-**
 ```
-**vivek\@vivek-HP-EliteBook-840-G2:\~$** cat kube-postgres-redmine.yaml
-
+vivek@vivek-HP-EliteBook-840-G2:~$ cat kube-postgres-redmine.yaml 
 # Save the output of this file and use kubectl create -f to import
 # it into Kubernetes.
+#
 # Created with podman-3.4.2
 apiVersion: v1
 kind: Pod
 metadata:
-  creationTimestamp: "2023-11-21T06:42:18Z"
-  labels:
-app: postgres-redmine
-  name: postgres-redmine
+  creationTimestamp: "2023-11-21T06:42:18Z"
+  labels:
+    app: postgres-redmine
+  name: postgres-redmine
 spec:
-  containers:
-  - args:
-- postgres
-image: docker.io/library/postgres:latest
-name: redmine-postgres-intigration
-env:
-- name: POSTGRES_DB
-   value: redminedb
-- name: POSTGRE_USER
-   name: redmineuser
-- name: POSTGRES_PASSWORD
-   value: redmine123
-- name: PGDATA
-   value: /var/lib/postgresql/data/pgdata
-ports:
-- containerPort: 3000
-   hostPort: 3000
-- containerPort: 5432
-   hostPort: 5432
-resources: {}
-securityContext:
-   capabilities:
-     drop:
-     - CAP_MKNOD
-     - CAP_NET_RAW
-     - CAP_AUDIT_WRITE
-tty: true
-volumeMounts:
-- mountPath: /var/lib/postgresql/data
-   name: home-vivek-redmine-postgres-uat-host-0
-  - args:
-- rails
-- server
-- -b
-- 0.0.0.0
-image: docker.io/library/redmine:latest
-name: redmine-app-new
-env:
-- name: REDMINE_DB_PORT
-   value: 5432
-- name: REDMINE_DB_USERNAME
-   value: redmineuser
-- name: REDMINE_DB_PASSWORD
-   value: redmine123
-- name: REDMINE_DB_DATABASE
-   value: redminedb
-- name: AWS_REGION
-   value: us-east-1
-- name: AWS_ACCESS_KEY_ID
-   value: xxxxxxxxxxx
-- name: AWS_SECRET_ACCESS_KEY
-   value: xxxxxxxxxx
-resources: {}
-securityContext:
-   capabilities:
-     drop:
-     - CAP_MKNOD
-     - CAP_NET_RAW
-     - CAP_AUDIT_WRITE
-tty: true
-volumeMounts:
-- mountPath: /usr/src/redmine/files
-   name: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1-pvc
-  restartPolicy: Never
-  volumes:
-  - hostPath:
-   path: /home/vivek/redmine/postgres-uat
-   type: Directory
-name: home-vivek-redmine-postgres-uat-host-0
-  - name: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1-pvc
-persistentVolumeClaim:
-   claimName: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1
+  containers:
+  - args:
+    - postgres
+    image: docker.io/library/postgres:latest
+    name: redmine-postgres-intigration
+    env:
+    - name: POSTGRES_DB
+      value: redminedb
+    - name: POSTGRE_USER
+      value: redmineuser
+    - name: POSTGRES_PASSWORD
+      value: redmine123
+    - name: PGDATA
+      value: /var/lib/postgresql/data/pgdata
+    ports:
+    - containerPort: 3000
+      hostPort: 3000
+    - containerPort: 5432
+      hostPort: 5432
+    resources: {}
+    securityContext:
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+    tty: true
+    volumeMounts:
+    - mountPath: /var/lib/postgresql/data
+      name: home-vivek-redmine-postgres-uat-host-0
+  - args:
+    - rails
+    - server
+    - -b
+    - 0.0.0.0
+    image: localhost/redmine-app-newvivek-v1
+    name: redmine-app-new
+    env:
+    - name: REDMINE_DB_PORT
+      value: 5432
+    - name: REDMINE_DB_USERNAME 
+      value: redmineuser
+    - name: REDMINE_DB_PASSWORD
+      value: redmine123
+    - name: REDMINE_DB_DATABASE
+      value: redminedb
+    - name: AWS_REGION
+      value: us-east-1
+    - name: AWS_ACCESS_KEY_ID
+      value: lpKM3E9qzJ9PIB7Bqey3
+    - name: AWS_SECRET_ACCESS_KEY
+      value: 3Yp1SMjwZYHQXfW9eT6DoW2MgwCtReKCl1QClNwJ
+
+    resources: {}
+    securityContext:
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+    tty: true
+    volumeMounts:
+    - mountPath: /usr/src/redmine/files
+      name: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1-pvc
+  restartPolicy: Never
+  volumes:
+  - hostPath:
+      path: /home/vivek/redmine/postgres-uat
+      type: Directory
+    name: home-vivek-redmine-postgres-uat-host-0
+  - name: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1-pvc
+    persistentVolumeClaim:
+      claimName: 3c5d6664579752606d0f4675bdd7ed049c0996ef1c159c10c7cb381daf9cc5c1
 status: {}
+
+vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 **vivek\@vivek-HP-EliteBook-840-G2**
 
