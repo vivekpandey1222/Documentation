@@ -32,7 +32,7 @@ sudo apt update
 ```
 **Podman Install:-**
 ```
-sudo apt install podman 
+sudo apt install podman
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ sudo apt install podman
 [sudo] password for vivek:
@@ -53,12 +53,12 @@ computer.
 
 **Check podman :-**
 ```
-which podman 
+which podman
 ```
 
 vivek\@vivek-HP-EliteBook-840-G2:\~$ which podman
 
-/usr/bin/podman 
+/usr/bin/podman
 
 vivek\@vivek-HP-EliteBook-840-G2:\~$
 
@@ -317,7 +317,7 @@ git clone https\://github.com/redmica/redmica\_s3.git plugins/redmica\_s3
 cp plugins/redmica\_s3/config/s3.yml.example config/s3.yml
 ```
 ```
-vim config/s3.yml 
+vim config/s3.yml
 
 root\@postgres-redmine:/usr/src/redmine# cat config/s3.yml
 
@@ -352,7 +352,7 @@ development:
 ```
 Now download dependency
 
-bundle install 
+bundle install
 ```
 root\@postgres-redmine:/usr/src/redmine# bundle install
 ```
@@ -485,7 +485,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$ podman exec it redmine-app-new /bin/bash
 root@postgres-redmine:/usr/src/redmine#
 ```
 ```
- ls and cd files 
+ ls and cd files
 ```
 ```
 root@postgres-redmine:/usr/src/redmine# ls
