@@ -1,5 +1,8 @@
 ## S3 Plugin Object Storage Backend Minio Integrate with Redmine
-## Table of Content
+
+# Table of Content
+
+[Minio](#1minio)
 
 [Minio](#1minio)
 
@@ -100,7 +103,7 @@ podman run -dt -p 9001:9000 -e MINIO_ROOT_USER=xxxxx -e MINIO_ROOT_PASSWORD=xxxx
 
 **Chmod +x ,This command  used to change file permissions.**
 ```
-chmod +x pod-minio.sh:-
+chmod +x pod-minio.sh
 ```
 **Once the execute permission is granted, you can run the script** 
 ```
