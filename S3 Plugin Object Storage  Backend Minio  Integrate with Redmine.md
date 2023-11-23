@@ -72,9 +72,9 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$
 Minio is an open-source object storage server that is compatible with S3. Minio is the best server which is suited for storing unstructured data, like photos, videos,  backups, and more. 
 
 **Setup Minio:-**
-
+```
 vim pod-minio.sh
-
+```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ cat pod-minio.sh
 ```
 #!/bin/bash
