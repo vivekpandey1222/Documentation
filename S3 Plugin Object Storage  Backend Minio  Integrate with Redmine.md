@@ -28,7 +28,7 @@ Podman is an open-source container management tool that allows users to manage c
 
 **Update system:-**
 ```
-sudo apt update 
+sudo apt update
 ```
 **Podman Install:-**
 ```
