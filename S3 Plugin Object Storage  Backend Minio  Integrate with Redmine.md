@@ -229,7 +229,8 @@ PostgreSQL is a powerful open-source relational database management system (RDBM
 **Redmine Setup:-**
 ```
 vim redmine.sh
-
+```
+```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ cat redmine.sh
 
 #!/bin/bash
