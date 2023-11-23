@@ -4,8 +4,6 @@
 
 [Minio](#1minio)
 
-[Minio](#1minio)
-
 [Minio-Testing](#2minio-testing)
 
 [Redmine-Setup](#3redmine-setup)
@@ -148,7 +146,8 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 which ansible
 ```
 ```
-vivek@vivek-HP-EliteBook-840-G2:~$ which ansible /usr/bin/ansible
+vivek@vivek-HP-EliteBook-840-G2:~$ which ansible
+ /usr/bin/ansible
 vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 **Using playbook create object Minio bucket:-**
@@ -292,7 +291,7 @@ Root directory to redmine
 podman exec -it \<container name> /bin/bash
 ```
 ```
-vivek@vivek-HP-EliteBook-840-G2:-$ podman exec it redmine-app-new /bin/bash 
+vivek@vivek-HP-EliteBook-840-G2:-$ podman exec it redmine-app-new /bin/bash
 root@postgres-redmine:/usr/src/redmine#
 ```
 **-podman exec :** This command for executing  within a running container.
