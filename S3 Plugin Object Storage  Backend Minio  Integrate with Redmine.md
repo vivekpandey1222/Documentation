@@ -74,9 +74,16 @@ which podman
 Minio is an open-source object storage server that is compatible with S3. Minio is the best server which is suited for storing unstructured data, like photos, videos,  backups, and more. 
 
 **Setup Minio:-**
+**create folder**
+```
+mkdir minio
+```
+
 ```
 vim pod-minio.sh
 ```
+**Note:-** Before run your script match your path which is loatec after -v
+
 ```
 #!/bin/bash
 
@@ -249,8 +256,15 @@ PostgreSQL is a powerful open-source relational database management system (RDBM
 
 **Redmine Setup:-**
 ```
+mkdir -p redmine/postgres-uat
+```
+
+```
 vim redmine.sh
 ```
+
+**Note:-** Before run your script match your path which is loatec after -v
+
 **Add this content in redmine.sh file**
 ```
 podman pod create --name postgres-redmine --publish 3000:3000 --publish 5432:5432
@@ -279,6 +293,7 @@ podman run -dt \
 docker.io/library/redmine
 
 ```
+
 **Chmod +x ,command is used to add execute permission to a fi**le
 ```
 chmod +x redmine.sh
