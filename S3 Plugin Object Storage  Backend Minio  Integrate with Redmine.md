@@ -39,7 +39,7 @@ sudo apt install podman
 ```
 ### output
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ sudo apt install podman
+vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
 [sudo] password for vivek:
 Reading package lists... Done
 Building dependency tree   
@@ -329,7 +329,7 @@ git clone https\://github.com/redmica/redmica\_s3.git plugins/redmica\_s3
 
 **Then run this command and edit config/s3.yml with your favorite editor** 
 ```
-cp plugins/redmica\_s3/config/s3.yml.example config/s3.yml
+cp plugins/redmica_s3/config/s3.yml.example config/s3.yml
 ```
 **install vim in the container**
 Note do not use sudo
@@ -537,7 +537,7 @@ Able to download data from same ticket
 
 Run this command to generate a yaml file.
 ```
-podman generate kube \<pod name> > \<File Name>.yaml
+podman generate kube <pod name> > <File Name>.yaml
 ```
 **-podman generate kube:** This command is used to generate a Kubernetes YAML manifest file for a specified container or pod. 
 
@@ -551,9 +551,14 @@ podman generate kube \<pod name> > \<File Name>.yaml
 
 ## 7.Launch Pod using yaml:-
 ```
+podman generate kube postgres-redmine > kube-postgres-redmine.yaml
+```
+example
+```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman generate kube postgres-redmine > kube-postgres-redmine.yaml
 ```
 if you want edit this file then 
+
 ```
 vim kube-postgres-redmine.yaml
 ```
@@ -653,7 +658,11 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 
 **Remove pod :**
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ podman pod rm postgres-redmine --force
+podman pod rm postgres-redmine --force
+```
+example
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ podman pod rm postgres-redmine --force
 ```
 ### Output
 3d03764227139c340b7dabb6cca395930fb9d998f939652ce122b6bb569327cc
@@ -662,7 +671,7 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$ podman pod rm postgres-redmine --force
 
 **podman play kube kube-podtgres-redmine.yaml**
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ podman play kube kube-postgres-redmine.yaml
+vivek@vivek-HP-EliteBook-840-G2:~$ podman play kube kube-postgres-redmine.yaml
 ```
 ### Output
 ```
