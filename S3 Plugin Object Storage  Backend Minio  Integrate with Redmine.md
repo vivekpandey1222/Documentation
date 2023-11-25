@@ -80,7 +80,7 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$ cat pod-minio.sh
 ```
 #!/bin/bash
 
-podman run -dt -p 9001:9000 -e MINIO_ROOT_USER=xxxxx -e MINIO_ROOT_PASSWORD=xxxxxxxx --name minio -v /home/vivek/minio:/data docker.io/minio/minio server /data --console-address ":9001"
+podman run -dt -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER=admin -e MINIO_ROOT_PASSWORD=xxxxxxxx --name minio -v /home/amit/minio:/data quay.io/minio/minio server /data --console-address ":9001"
 ```
 `-podman run: `This command is used to run a container using Podman.
 
@@ -147,15 +147,13 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 which ansible
 ```
 ```
-vivek@vivek-HP-EliteBook-840-G2:~$ which ansible
- /usr/bin/ansible
-vivek@vivek-HP-EliteBook-840-G2:~$
+/usr/bin/ansible
 ```
 **Using playbook create object Minio bucket:-**
 
-**Create directory:-**
+**Create file for ansbie testing:-**
 ```
-touch minio-testing.txt
+touch a.txt
 ```
 **Then create yml file :-**
 ```
@@ -175,8 +173,8 @@ gather_facts:
      aws_access_key: xxxxx # Replace with your Minio access key
      aws_secret_key: xxxxxxxx # Replace with your Minio secret key
      bucket: project1
-     object: minio_testing.txt
-     src: minio_testing.txt
+     object: a.txt
+     src: a.txt
      mode: put
      s3_url: http://127.0.0.1:9001
      region: us-east-1
