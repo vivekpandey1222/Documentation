@@ -124,6 +124,21 @@ Login with your username and password.
 
 **Note:-** Nessaary you have to create bucket, access_key: and secret_key:
            and also set region with this name us-east-1
+**example **
+![](https://lh7-us.googleusercontent.com/8fqKD6tEg4qpXjqUWOib2u7AoeQ7cB80yxMKJLUGBNGagQ6nVtdJHPdTwvt-zDXkd6oaBFvs05jJF-VWdUqIJkQUeMfWkZ4CcUbcepABrsLXj7OKJ3YEYsaeVxTjj1cUDc2t4Sll-MWlgigkx6k6AxU)
+
+
+![](https://lh7-us.googleusercontent.com/xfzSGksOubESfPoKkb1aqOLrzhjtnEHKquILbEKyfb6Q9jfDm08oZ24vn37p3UktG5mn_NVapgJY3P72KnnHT_9rUzkr1pzXlMaPtgEEZbCDbd0bA9YIOCGKCxEiuaK9F24hJUHv0xrHFooFKBaQG_E)
+
+
+![](https://lh7-us.googleusercontent.com/wyNSh_pS3N7LvdfcErF1g1mcLKa9Ynpp_zTKIAaEpHK2Q4V0h38Z-VA94RD5Men3xyKTMylvL-itMFBFlxgrHalCZA18Sqo-Nts39pXx1dbKRCWnTlo4XzOQ6OfwpMgHO7NyHjFF-i6wshp_mQjr-8I)
+
+
+![](https://lh7-us.googleusercontent.com/6SNIlu_bKAqCsviXsTUzN8WsdrWmly-RqcE_cfwmg3yJFrMWGgt8wPXf7VWpDAIji69DuETKLvWOOg-H0Zc8Spa-4mKYSVXQUrIVfgCLZndS0Ca1KVUmE3VQyQmfkv5lRKDU0ksGVeDatl8ze0VOCY8)
+
+
+![](https://lh7-us.googleusercontent.com/PoZk1HCsUPHw-poDzWCyqfPMwIJ-Jac8ZnDXVlN1hYHcTpVB7kH2XdRaCy6nH9YaHdyFlTuRctnyD5_IyHyeXZFu6eWjyu-zGYqGRmdPCOuEDoAHrRnxllIMRhhKS-XY9-VWAd_K0pNnEWvkxhvnb8M)
+
        
 
 —----------------------------------------------------------------------------------------------------------------------------
