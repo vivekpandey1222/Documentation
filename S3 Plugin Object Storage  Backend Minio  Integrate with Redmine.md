@@ -32,9 +32,12 @@ Podman is an open-source container management tool that allows users to manage c
 ```
 sudo apt update
 ```
+
 **Podman Install:-**
 ```
 sudo apt install podman
+```
+### output
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ sudo apt install podman
 [sudo] password for vivek:
@@ -43,7 +46,7 @@ Building dependency tree   
 Reading state information... Done
 podman is already the newest version (100:3.4.2-5).
 0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
-
+```
 **- sudo:** This part of the command is like saying "I want to do something important." It
 stands for "superuser do" and allows you to perform tasks that affect your computer's
 system, like installing software.
@@ -57,12 +60,10 @@ computer.
 ```
 which podman
 ```
-
-vivek\@vivek-HP-EliteBook-840-G2:\~$ which podman
-
+### Output
+```
 /usr/bin/podman
-
-vivek\@vivek-HP-EliteBook-840-G2:\~$
+```
 
 -**Which :** Which command is used to locate the full path of the executable file.
 
@@ -76,7 +77,6 @@ Minio is an open-source object storage server that is compatible with S3. Minio 
 ```
 vim pod-minio.sh
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ cat pod-minio.sh
 ```
 #!/bin/bash
 
@@ -100,6 +100,7 @@ podman run -dt -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER=admin -e MINIO_ROOT_
 
 `--console-address ":9001`**:** This option specifies the address on which the Minio console will be available. it's set to port 9001.
 
+
 **Chmod +x ,This command  used to change file permissions.**
 ```
 chmod +x pod-minio.sh
@@ -112,23 +113,31 @@ chmod +x pod-minio.sh
 ```
 podman ps
 ```
+### Output
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
 CONTAINER ID  IMAGE                                     COMMAND               CREATED       STATUS                PORTS                                           NAMES
 7bf686d7d295  docker.io/minio/minio:latest              server /data --co...  3 weeks ago   Up About an hour ago  0.0.0.0:9000-9001->9000-9001/tcp                minio
 ```
 After running the script, open your web browser and check the Minio server <http://localhost:9001>
+Login with your username and password.
+
+### Now create bucket with the name of porject1
+click Buckets option
+click create bucket option
+
 
 —----------------------------------------------------------------------------------------------------------------------------
 
 ## 2.Minio Testing:-
 
-Testing Minio object storage  bucket using ansiblePlaybook
+Testing Minio object storage bucket using ansiblePlaybook
 
 **install ansible:-**
 ```
 sudo apt install ansible
 ```
+### Output
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install ansible
 [sudo] password for vivek:
@@ -146,6 +155,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 which ansible
 ```
+### Output
 ```
 /usr/bin/ansible
 ```
@@ -159,29 +169,26 @@ touch a.txt
 ```
 vim minio-testing.yml
 ```
-
+**Add this content in minio-testting.yml file**
 ```
 ---
-- hosts: localhost
-connection: local
-gather_facts: 
-  tasks:
+ - hosts: localhost
+   become: false
+   gather_facts: true
+   tasks:
 
-- name: Simple PUT operation (Upload-Single file)
+   - name: Simple PUT operation (Upload-Single file)
+     aws_s3:
+        aws_access_key: VYzBzTVmGWMyCaKww6WI
+        aws_secret_key: aQlwXoPEUsEg1P6qoFUIYXGiVb3jIYHA9Z8PF1VZ
+        bucket: project1
+        object: a.txt
+        src: a.txt
+        mode: put
+        s3_url: http://127.0.0.1:9000
+        region: us-east-1
+        encrypt: false
 
-   aws_s3:
-     aws_access_key: xxxxx # Replace with your Minio access key
-     aws_secret_key: xxxxxxxx # Replace with your Minio secret key
-     bucket: project1
-     object: a.txt
-     src: a.txt
-     mode: put
-     s3_url: http://127.0.0.1:9001
-     region: us-east-1
-     encrypt: false
-   vars:
-
-          # ansible_python_interpreter: /usr/bin/python3
 ```
 
 **Then run command for testing :-**
@@ -205,7 +212,7 @@ ansible-playbook minio-testing.yml -v
 **-v:** It is used with Ansible, it increases the verbosity. Increasing verbosity means providing more information about what the tool is doing during its execution.
 
 Note:- If an error while running this command, (ansible-playbook minio-testing.yml -v)
-Then check python3  library
+Then check python3 library 
 ```
 pip install boto3
 ```
@@ -215,6 +222,7 @@ pip install boto3
 
 **-boto3:** Boto3 is the official Amazon Web Services Software Development Kit for Python. It allows Python developers to write software that makes use of services like Amazon S3 
 
+**Note:**- If any error show run sudo apt install python3-pip 
 —----------------------------------------------------------------------------------------------------------------------------
 
 ## 3.Redmine Setup:-
@@ -229,8 +237,8 @@ PostgreSQL is a powerful open-source relational database management system (RDBM
 ```
 vim redmine.sh
 ```
+**Add this content in redmine.sh file**
 ```
-vivek@vivek-HP-EliteBook-840-G2:~$ cat redmine.sh 
 podman pod create --name postgres-redmine --publish 3000:3000 --publish 5432:5432
 podman run -dt \
 --pod postgres-redmine \
@@ -252,11 +260,10 @@ podman run -dt \
 -e REDMINE_DB_PASSWORD=redmine123 \
 -e REDMINE_DB_DATABASE=redminedb \
 -e AWS_REGION=us-east-1 \
--e AWS_ACCESS_KEY_ID=lpKM3E9qzJ9PIB7Bqey3 \ #replace with minio key
--e AWS_SECRET_ACCESS_KEY=3Yp1SMjwZYHQXfW9eT6DoW2MgwCtReKCl1QClNwJ \ #replace with minio secret key
+-e AWS_ACCESS_KEY_ID=lpKM3E9qzJ9PIB7Bqey3 \
+-e AWS_SECRET_ACCESS_KEY=3Yp1SMjwZYHQXfW9eT6DoW2MgwCtReKCl1QClNwJ \
 docker.io/library/redmine
 
-#-e REDMINE_DB_POSTGRES=localhost \
 ```
 **Chmod +x ,command is used to add execute permission to a fi**le
 ```
@@ -266,17 +273,22 @@ chmod +x redmine.sh
 ```
 ./redmine.sh
 ```
-**Then create container and running container command** 
+**Check running container** 
 ```
 podman ps
 ```
-```
-vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
-```
-After running the script, open your web browser and check the Minio server <http://localhost:3000>
+
+After running the script, open your web browser and check the redmine server <http://localhost:3000>
 
 And sign in by default username and password “admin”.
 Then create your own username and password.
+
+**Create this things**
+-Projects
+-Issue statuses
+-Trackers
+-Enumerations (create onl priorities)
+
 
 —----------------------------------------------------------------------------------------------------------------------------
 
@@ -286,12 +298,13 @@ Amazon S3, (Simple Storage Service) is a widely used object storage service prov
 
 **S3 Plugins Install on redmine**
 
-Root directory to redmine
+Go Root directory in redmine container
 ```
-podman exec -it \<container name> /bin/bash
+podman exec -it <container name> /bin/bash
 ```
+### example
 ```
-vivek@vivek-HP-EliteBook-840-G2:-$ podman exec it redmine-app-new /bin/bash
+vivek@vivek-HP-EliteBook-840-G2:-$ podman exec -it redmine-app-new /bin/bash
 root@postgres-redmine:/usr/src/redmine#
 ```
 **-podman exec :** This command for executing  within a running container.
@@ -318,11 +331,17 @@ git clone https\://github.com/redmica/redmica\_s3.git plugins/redmica\_s3
 ```
 cp plugins/redmica\_s3/config/s3.yml.example config/s3.yml
 ```
+**install vim in the container**
+Note do not use sudo
+```
+apt update && apt install vim -y
+```
+
 ```
 vim config/s3.yml
 ```
+**Add this content in config/s3.yml**
 ```
-root@postgres-redmine:/usr/src/redmine# cat config/s3.yml 
 production:
   access_key_id: lpKM3E9qzJ9PIB7Bqey3
   secret_access_key: 3Yp1SMjwZYHQXfW9eT6DoW2MgwCtReKCl1QClNwJ
@@ -351,19 +370,20 @@ development:
 
 ```
 Now download dependency
-
+```
 bundle install
 ```
+example
 root\@postgres-redmine:/usr/src/redmine# bundle install
-```
+
 **-bundle:** Bundle is a tool used in Ruby programming to keep track of and manage the different pieces of code, called "gems," that a project depends on. 
 
 Then run this command 
-
+```
 rake redmine:plugins
 ```
-root\@postgres-redmine:/usr/src/redmine#rake redmine:plugins
-```
+### Output
+
 ```
 root@postgres-redmine:/usr/src/redmine/config# rake redmine:plugins (in /usr/src/redmine)
 root@postgres-redmine:/usr/src/redmine/config#
@@ -371,27 +391,31 @@ root@postgres-redmine:/usr/src/redmine/config#
 ```
 **-Rake redmine:plugins:** is a Rake task designed for managing plugins in a Redmine installation.
 
-Now you can see the plugins in redmine : 
-
-Click on the administration option and click on the plugins options .
-
-![](https://lh7-us.googleusercontent.com/4T-tqjRr8-2iEd0MMKIzVHzuR3pyE82U3s6zUYWk--JiV1ZmcGVm1EpaS2IvKhg1ITMJsiywLtnoWFFryxRDXluXW2n3n5L5HjrbyykNhhFrZwEtJeOr4fSv20FqZotyhqgS9tRTRUTzvgyIONwRjys)
 
 **Restart your pod and server:-**
 ```
 podman pod restart postgres-redmine
 ```
-```
-podman ps
-```
+### Output
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman pod restart postgres-redmine 
 9d33b0c6d766af131f72070d5c51506daa2464ca6dc1e0e98e6ac1c6b3338ec0
+```
+```
+podman ps
+```
+### Output
+```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman pod ps
 POD ID        NAME              STATUS      CREATED       INFRA ID      # OF CONTAINERS
 9d33b0c6d766  postgres-redmine  Running     19 hours ago  0573a099e29e  3
 vivek@vivek-HP-EliteBook-840-G2:~$ 
 ```
+Now you can see the plugins in redmine : 
+
+Click on the administration option and click on the plugins options .
+
+![](https://lh7-us.googleusercontent.com/4T-tqjRr8-2iEd0MMKIzVHzuR3pyE82U3s6zUYWk--JiV1ZmcGVm1EpaS2IvKhg1ITMJsiywLtnoWFFryxRDXluXW2n3n5L5HjrbyykNhhFrZwEtJeOr4fSv20FqZotyhqgS9tRTRUTzvgyIONwRjys)
 
 
 **Create image of container**
@@ -400,6 +424,7 @@ commit command is used to create image of container 
 ```
 podman commit redmine-app-new localhost/redmine-app-new-pandey-v1
 ```
+### Output
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman commit redmine-app-new localhost/redmi ne-app-new-pandey-v1
 Getting image source signatures
@@ -425,6 +450,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 podman images
 ```
+### Output
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman images
 REPOSITORY                             TAG          IMAGE ID      CREATED       SIZE
@@ -629,6 +655,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman pod rm postgres-redmine --force
 ```
+### Output
 3d03764227139c340b7dabb6cca395930fb9d998f939652ce122b6bb569327cc
 
 **Now Create pod using yaml command:**
@@ -637,6 +664,7 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$ podman pod rm postgres-redmine --force
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman play kube kube-postgres-redmine.yaml
 ```
+### Output
 ```
 Trying to pull docker.io/library/postgres:latest...
 Getting image source signatures
