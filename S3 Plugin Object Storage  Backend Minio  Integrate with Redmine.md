@@ -122,10 +122,9 @@ CONTAINER ID  IMAGE                                     COMMAND               CR
 After running the script, open your web browser and check the Minio server <http://localhost:9001>
 Login with your username and password.
 
-### Now create bucket with the name of porject1
-click Buckets option
-click create bucket option
-
+**Note:-** Nessaary you have to create bucket, access_key: and secret_key:
+           and also set region with this name us-east-1
+       
 
 —----------------------------------------------------------------------------------------------------------------------------
 
