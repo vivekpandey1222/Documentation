@@ -420,6 +420,7 @@ root@postgres-redmine:/usr/src/redmine/config#
 ```
 **-Rake redmine:plugins:** is a Rake task designed for managing plugins in a Redmine installation.
 
+**Exit from the container before restarting pod** 
 
 **Restart your pod and server:-**
 ```
