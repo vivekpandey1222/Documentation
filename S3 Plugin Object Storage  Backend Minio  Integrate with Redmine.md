@@ -329,7 +329,7 @@ Amazon S3, (Simple Storage Service) is a widely used object storage service prov
 
 Go Root directory in redmine container
 ```
-podman exec -it <container name> /bin/bash
+podman exec -it redmine-app-new /bin/bash
 ```
 ### example
 ```
@@ -346,7 +346,7 @@ root@postgres-redmine:/usr/src/redmine#
 
 **Now run this command on redmine container**
 ```
-git clone https\://github.com/redmica/redmica\_s3.git plugins/redmica\_s3
+git clone https://github.com/redmica/redmica_s3.git plugins/redmica_s3
 ```
 **-git clone:** This is the Git command used to clone a repository. Cloning is the process of creating a local copy of a Git repository on your machine.
 
