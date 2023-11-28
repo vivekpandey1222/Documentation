@@ -701,7 +701,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$ podman pod rm postgres-redmine --force
 
 **podman play kube kube-podtgres-redmine.yaml**
 ```
-vivek@vivek-HP-EliteBook-840-G2:~$ podman play kube kube-postgres-redmine.yaml
+podman play kube kube-postgres-redmine.yaml
 ```
 ### Output
 ```
