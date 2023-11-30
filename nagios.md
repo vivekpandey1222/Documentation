@@ -128,7 +128,7 @@ podman pull docker.io/jasonrivers/nagios
 
 This command will start the Nagios container with the specified options. You can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and open By default username and password “nagiosadmin”
 ```
-podman run -p 8080:80 -v /home/vivek/rough/nagios\:/usr/local/nagios/etc/ --name nagios -d docker.io/jasonrivers/nagios 
+podman run -p 8080:80 -v /home/vivek/rough/nagios:/usr/local/nagios/etc/ --name nagios -d docker.io/jasonrivers/nagios
 ```
 Now check the running container this command-
 ```
