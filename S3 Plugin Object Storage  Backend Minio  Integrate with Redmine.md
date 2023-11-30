@@ -1,7 +1,7 @@
 ## S3 Plugin Object Storage Backend Minio Integrate with Redmine
 
 # Table of Content
-
+[A](#minio)
 [Minio](#1minio)
 
 [Minio-Testing](#2minio-testing)
@@ -68,7 +68,7 @@ which podman
 -**Which :** Which command is used to locate the full path of the executable file.
 
 —----------------------------------------------------------------------------------------------------------------------------
-
+# MINIO
 ## 1.Minio:-
 
 Minio is an open-source object storage server that is compatible with S3. Minio is the best server which is suited for storing unstructured data, like photos, videos,  backups, and more. 
