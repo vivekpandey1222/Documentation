@@ -67,7 +67,7 @@ curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers\
 
 **Update system:-**
 ```
-Sudo apt update
+sudo apt update
 ```
 **Podman Install:-**
 ```
