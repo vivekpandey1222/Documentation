@@ -143,6 +143,10 @@ CONTAINER ID  IMAGE                                 COMMAND   
 ```
 Now access the web page <http://localhost:8080>
 
+Now login with by default username and password "nagiosadmin"
+
+![](https://github.com/vivekpandey1222/Documentation/assets/151363790/a5adc9ab-e8c1-4db9-94e9-b652c68380e6)
+
 After login you will get Nagios dashboard like this:
 
 ![](https://lh7-us.googleusercontent.com/tdeH1HzXnOLcEErgYQTKrMVJvl7b85WHNt4yczO6fRd3vMYHoqqiWqrD-hQ76tuXhwSdtku7F8NsAtUnBJSMgawZAyIUFEOuLaZq-e0tXAD_4leTH-hWn5a4h8pfkwe4OHU-mNSxJls2Zt5pjM1GsVQ)
