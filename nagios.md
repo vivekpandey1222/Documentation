@@ -108,7 +108,7 @@ Nagios is a monitoring system used for keeping track of the health and performan
 
 **Now search the Nagios image-**
 ```
-Podman search nagios
+podman search nagios
 ```
 
 **podman:** It is the name of the containerization tool.
