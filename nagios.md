@@ -94,7 +94,7 @@ computer.
 
 **Check podman :-**
 ```
-Which podman
+which podman
 ```
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ which podman
