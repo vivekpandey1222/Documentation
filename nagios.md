@@ -71,7 +71,7 @@ Sudo apt update
 ```
 **Podman Install:-**
 ```
-Sudo apt install podman
+sudo apt install podman
 ```
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
