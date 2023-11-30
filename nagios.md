@@ -67,11 +67,11 @@ curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers\
 
 **Update system:-**
 ```
-Sudo apt update 
+Sudo apt update
 ```
 **Podman Install:-**
 ```
-Sudo apt install podman 
+Sudo apt install podman
 ```
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
@@ -94,7 +94,7 @@ computer.
 
 **Check podman :-**
 ```
-Which podman 
+Which podman
 ```
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ which podman
@@ -141,7 +141,7 @@ CONTAINER ID  IMAGE                                 COMMAND   
 
 0f41ef7d6d11  docker.io/jasonrivers/nagios:latest   /usr/local/bin/st...  37 hours ago  Up 8 seconds ago  0.0.0.0:8080->80/tcp                        nagios
 ```
-Now access the web page <http://localhost:8080> 
+Now access the web page <http://localhost:8080>
 
 After login you will get Nagios dashboard like this:
 
