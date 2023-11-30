@@ -1,7 +1,6 @@
 ## S3 Plugin Object Storage Backend Minio Integrate with Redmine
 
 # Table of Content
-[A](#minio)
 [Minio](#1minio)
 
 [Minio-Testing](#2minio-testing)
