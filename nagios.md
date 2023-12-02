@@ -128,8 +128,22 @@ podman pull docker.io/jasonrivers/nagios
 
 This command will start the Nagios container with the specified options. You can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and open By default username and password “nagiosadmin”
 ```
-podman run -p 8080:80 -v /home/vivek/rough/nagios:/usr/local/nagios/etc/ --name nagios -d docker.io/jasonrivers/nagios
+podman run -p 8080:80 --cap-add=NET_RAW -v /home/vivek/rough/nagios:/usr/local/nagios/etc/ --name nagios -d docker.io/jasonrivers/nagios
 ```
+podman run: This is the command to run a container using Podman.
+
+-p 8080:80: This option maps port 8080 on the host to port 80 on the container.
+
+--cap-add=NET_RAW: This command is like giving a special power to the container. This power allows the container to do advanced things with computer networks.
+
+-v /home/vivek/rough/nagios:/usr/local/nagios/etc/: This option mounts the local directory.
+
+--name nagios: This option assigns the name "nagios" to the running container.
+
+-d: This option runs the container in detached mode.
+
+docker.io/jasonrivers/nagios: This is the name of the Docker image used to create the container. 
+
 Now check the running container this command-
 ```
 podman ps
@@ -156,4 +170,5 @@ After login you will get Nagios dashboard like this:
 
 We have to go to the left side and click on the service option. This is the dashboard of all services.
 
-![](https://lh7-us.googleusercontent.com/7N1KAxVJWGkC7RoZdF9bw36ZYmyfoGpAKYvLMyHZb21jllvE85M3swpI213pxCw7yKyhNMtimfCvXvBwf4pX69LAU-PA3RoPI-RRQd8uPSKX2UhY9Mt0t1V0CIEPTQImcW_a7XY4NJMoROHPpOnJvPY)
+![](https://github.com/vivekpandey1222/Documentation/assets/151363790/47c7abe9-1648-4202-9941-419042079084)
+
