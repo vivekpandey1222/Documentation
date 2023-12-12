@@ -22,14 +22,14 @@ Podman is an open-source container management tool that allows users to manage c
 
 **Update your system:-**
 ```
-sudo apt update 
+sudo apt update
 ```
 **Podman Install:-**
 ```
-sudo apt install podman 
+sudo apt install podman
 ```
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ sudo apt install podman
+vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
 [sudo] password for vivek:
 Reading package lists... Done
 Building dependency tree   
@@ -50,7 +50,7 @@ computer.
 
 **Check podman :-**
 ```
-which podman 
+which podman
 ```
 ```
 vivek\@vivek-HP-EliteBook-840-G2:~$ which podman
@@ -81,7 +81,7 @@ podman run -d -p 5432:5432 -v /home/vivek/postgres/data:/var/lib/pgsql/data --na
 
 Check running container-
 ```
-podman ps  
+podman ps
 ```
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman ps
@@ -121,7 +121,7 @@ root\@48ef2005155e:/#
 
 To connect to a PostgreSQL database with a specific user-
 ```
-psql -U postgres 
+psql -U postgres
 ```
 ```
 root\@48ef2005155e:/# psql -U postgres
@@ -161,7 +161,7 @@ postgres=# \l
 
 Now we create database -
 ```
-create database \<db name>;
+create database <db name>;
 ```
 ```
 postgres=# create database keenable;
@@ -176,7 +176,7 @@ postgres=#
 
 To Switch other database-
 ```
-\c
+\c <database name>
 ```
 ```
 postgres=# \c keenable;
@@ -201,7 +201,7 @@ It is used to exit the PostgreSQL interactive terminal (psql) and return to the 
 
 Now create a schema-
 ```
-create schema \<schema\_name>;
+create schema <schema_name>;
 ```
 ```
 keenable=# create schema new;
@@ -237,7 +237,7 @@ keenable=#
 
 To check list all tables in the current database:
 ```
-\d 
+\d
 ```
 ```
 keenable=# \d
@@ -258,13 +258,13 @@ keenable=# \d intern
                Table "public.intern"
 Column |  Type   | Collation | Nullable | Default
 --------------+---------+-----------+----------+---------
- id        | integer |       | not null |
- fname    | text |       | not null |
- lname    | text |       | not null |
- Joining\_date  | integer |         | not null |
- month    | text |       | not null |
- age      | integer |       | not null |
- city      | text |       | not null |
+ id           | integer |    | not null |
+ fname        | text |       | not null |
+ lname        | text |       | not null |
+ Joining_date | integer |    | not null |
+ month        | text |       | not null |
+ age          | integer |    | not null |
+ city         | text |       | not null |
 keenable=#
 ```
 Insert value into table:
@@ -292,6 +292,21 @@ keenable=# update intern set fname= 'raghav' where fname ='manish';
 UPDATE 1
  101 | raghav   | burman |        6 | september |  21 | delhi |
 ```
+
+UPDATE: This keyword indicates that you want to modify data in a table.
+
+intern: This is the name of the table you want to update.
+
+SET: This keyword is used to specify the column(s) and their new values that you want to update.
+
+fname: This is the column you want to update.
+
+'raghav': This is the new value you want to set for the "fname" column.
+
+WHERE: This clause is used to specify a condition to determine which rows to update. In this case, you want to update the rows where the value in the "fname" column is equal to 'manish'.
+
+fname = 'manish': This is the condition. It ensures that only rows where the "fname" column has the value 'manish' will be updated.
+
 **Delete data from table:** To delete data from a table, you use the DELETE statement.
 ```
 delete from intern where fname = 'raghav';
@@ -300,6 +315,14 @@ delete from intern where fname = 'raghav';
 keenable=# delete from intern where fname = 'raghav';
 DELETE 1
 ```
+DELETE FROM: This phrase is used to specify that you want to delete records from a table.
+
+intern: This is the name of the table from which you want to delete records.
+
+WHERE: This clause is optional but, if used, it specifies a condition to determine which rows to delete. In this case, you want to delete the rows where the value in the "fname" column is equal to 'raghav'.
+
+fname = 'raghav': This is the condition. It ensures that only rows where the "fname" column has the value 'raghav' will be deleted.
+
 **Add a column to a table:** To add a new column to an existing table, you use the ALTER TABLE statement.
 ```
 Alter table contractor add column email text;
@@ -311,6 +334,16 @@ keenable=# select * from contractor;
  id |  name  | salary |        work_hour         | email
 ----+--------+---------------+----------------------------------+-------
 ```
+ALTER TABLE: This phrase is used to modify an existing table structure.
+
+contractor: This is the name of the table to which you want to make changes.
+
+ADD COLUMN: This specifies that you want to add a new column to the table.
+
+email: This is the name of the new column that you want to add.
+
+text: This specifies the data type for the new column. In this case, the data type is "text," which is often used for storing variable-length character strings.
+
 **Delete a column from a table:** To delete an existing column from a table, you use the ALTER TABLE statement.
 ```
 Alter table contractor drop column email;
@@ -319,6 +352,15 @@ Alter table contractor drop column email;
 keenable=#Alter table  contractor drop column email;
 ALTER TABLE
 ```
+
+ALTER TABLE: This phrase is used to modify an existing table structure.
+
+contractor: This is the name of the table from which you want to remove a column.
+
+DROP COLUMN: This specifies that you want to remove a column from the table.
+
+email: This is the name of the column that you want to drop.
+
 **Add a row to a table:** To add a new row (record) to a table, you use the INSERT INTO statement.
 ```
 insert into intern values (106, 'kanha', 'kumar', 14, 'august', 28, 'bihar');
@@ -364,9 +406,9 @@ keenable=# select * from intern;
 ```
 **SELECT:** This keyword is used to retrieve or fetch data from a database. Select data according to your requirement.
 
-**\*:** The asterisk (\*) represents all columns in the table. It essentially means "select everything."
+***:** The asterisk (*) represents all columns in the table. It essentially means "select everything."
 
-**FROM \<table\_name>:** This part specifies the table from which you want to retrieve the data. Replace \<table\_name> with the actual name of the table.
+**FROM <table_name>:** This part specifies the table from which you want to retrieve the data. Replace \<table\_name> with the actual name of the table.
 
 **Clause:-** A clause is a part of a SQL statement that specifies conditions for the retrieval or manipulation of data. Clauses are used to filter, sort the results of a query.
 
@@ -380,6 +422,10 @@ keenable=# select * from intern where age>=20;
 -----+--------+--------+--------------+-----------+-----+-------
  101 | manish | burman |        6 | september |  21 | delhi
 ```
+FROM intern: This specifies the table from which you want to retrieve data, in this case, the "intern" table.
+
+WHERE age >= 20: This is a condition specified in the WHERE clause. It filters the rows, allowing only those where the value in the "age" column is greater than or equal to 20 to be included in the result set
+
 **ORDER BY Clause:** It is used in SELECT statements to sort the result set based on one or more columns. Like- asc desc.
 ```
 select * from intern order by age asc;
@@ -393,6 +439,7 @@ keenable=# select * from intern order by age asc;
  105 | vivek | pandey |       17 | september |  23 | kanpur
  105 | kanhaiya | mishra |       17 | august |  27 | greater
 ```
+ORDER BY age ASC: This clause is used to sort the result set based on the specified column. In this case, it orders the result set by the "age" column in ascending order (ASC stands for ascending). If you wanted descending order, you could use DESC instead of ASC
 
 **GROUP BY Clause:** It is used to change a particular field or data in group and show the other table form.
 ```
@@ -406,11 +453,11 @@ select  department_id, AVG(salary) from employees GROUP BY department_id HAVING
 
 **Arithmetic Operators:**
 
-\+ (addition)
++ (addition)
 
-\- (subtraction)
+- (subtraction)
 
-\* (multiplication)
+* (multiplication)
 
 / (division)
 
@@ -418,17 +465,17 @@ select  department_id, AVG(salary) from employees GROUP BY department_id HAVING
 
 **Comparison Operators:**
 
-\= (equal to)
+= (equal to)
 
 != or <> (not equal to)
 
 < (less than)
 
-\> (greater than)
+> (greater than)
 
 <= (less than or equal to)
 
-\>= (greater than or equal to)
+>= (greater than or equal to)
 
 **Logical Operators:**
 
@@ -504,7 +551,7 @@ keenable=# select * from intern where age not in(23,23,27);
 -----+--------+--------+--------------+-----------+-----+-------
  101 | manish | burman |        6 | september |  21 | delhi
 ```
-**BERWEEN:** The BETWEEN operator in PostgreSQL is used to filter rows based on a range of values. It is often used in the WHERE clause of a SQL statement to retrieve rows where a column's value falls within a specified range.
+**BETWEEN:** The BETWEEN operator in PostgreSQL is used to filter rows based on a range of values. It is often used in the WHERE clause of a SQL statement to retrieve rows where a column's value falls within a specified range.
 ```
 select * from intern where age between 21 and  23;
 ```
@@ -612,6 +659,8 @@ FROM intern;
  kanhaiya | mishra
  vivek    | pandey
 ```
+SELECT salary AS total: This part of the query selects the "salary" column from the "employee" table and aliases it as "total" in the result set.
+
 **Index:** index is a database object that improves the speed of data retrieval operations on a table.
 ```
 Create index intern_index on intern(“fname”);
@@ -637,6 +686,10 @@ Create type mood as enum (‘sad’,’ok’,’happy’);
 keenable=# create type mood as enum('sad','ok','happy');
 CREATE TYPE
 ```
+CREATE TYPE mood: This part of the statement indicates that you are creating a new user-defined data type named "mood."
+
+AS ENUM ('sad', 'ok', 'happy'): This specifies the values that the "mood" type can take. In this case, it is an enumeration type, and the possible values are 'sad', 'ok', and 'happy'. Enumerations are used to define a set of distinct values that a column can take.
+
 **Constraint:** constraint is a rule or condition applied to a column or a set of columns in a table to maintain the integrity, accuracy, and reliability of the data. Constraints define the limitations or rules of the data in a table.
 
 **Null constraint:** Ensures that a column does not contain any null (missing or undefined) values.Like- create table work (id not null);
@@ -747,7 +800,7 @@ SELECT CONCAT('Hello ', 'World') AS concatenated_string;
  Hello World
 ```
 ```
-SELECT 'Hello ' || 'World' AS concatenated\_string;
+SELECT 'Hello ' || 'World' AS concatenated_string;
 ```
 ```
 keenable=# SELECT 'Hello ' || 'World' AS concatenated_string;
