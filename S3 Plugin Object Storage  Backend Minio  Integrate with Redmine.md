@@ -61,10 +61,14 @@ Minio is an open-source object storage server that is compatible with S3. Minio 
 ```
 mkdir minio
 ```
-
+**mkdir**: This command is used to make a directory.
+**minio**: this is name of directory.
 ```
 vim pod-minio.sh
 ```
+**vim**: This command is used to editing text.
+**pod-minio.sh**: this is the script name.
+
 **Note:-** Before run your script match your path which is loatec after -v
 
 ```
@@ -99,10 +103,14 @@ chmod +x pod-minio.sh
 ```
 ./pod-minio.sh
 ```
+**./**: If you want to run a script that is in your current directory.
+
 **Then create container and running container command** 
 ```
 podman ps
 ```
+**podman ps**: You'll receive a list showing which containers are currently running, along with basic information about them.
+
 **Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
@@ -169,10 +177,16 @@ which ansible
 ```
 touch a.txt
 ```
+**touch**: This command is used to create a empty file.
+**a.txt**: This the file name.
+
 **Then create yml file :-**
 ```
 vim minio-testing.yml
 ```
+**vim**: vim is a text editor.
+**minio-testing.yml**: this is name of yaml file.
+
 **Add this content in minio-testting.yml file**
 ```
 ---
@@ -241,10 +255,15 @@ PostgreSQL is a powerful open-source relational database management system (RDBM
 ```
 mkdir -p redmine/postgres-uat
 ```
+**vim**: vim is a text editor.
+**-p**: this option allows you to create parent directories.
+**redmine/postgres-uat**: This is the path of the directory structure you want to create.
 
 ```
 vim redmine.sh
 ```
+**vim**: vim is a text editor.
+**redmine.sh**: this is name of script.
 
 **Note:-** Before run your script match your path which is loatec after -v
 
@@ -276,8 +295,12 @@ podman run -dt \
 docker.io/library/redmine
 
 ```
+**podman pod create**: This part of the command initiates the creation of a Pod.Pod is group of containers.
+**--name postgres-redmine**: This specifies the name of the pod.
+**--publish 3000:3000**: This option is used to publish a port from the pod to the host.
+**--publish 5432:5432**: This is publishing port 5432 from the pod to port 5432 on the host. This is commonly used for database connections.
 
-**Chmod +x ,command is used to add execute permission to a fi**le
+**Chmod +x ,command is used to add execute permission to a file**
 ```
 chmod +x redmine.sh
 ```
