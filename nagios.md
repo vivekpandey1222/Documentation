@@ -2,7 +2,7 @@
 
 ## Table of Content
 
-[1.Linux Ddistriution](#1linux-distribution)
+[1.Linuxdistriution](#1linuxdistribution)
 
 [2.Prerequisites-tool](#2prerequisites-tool)
 
