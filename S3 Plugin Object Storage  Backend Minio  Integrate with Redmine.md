@@ -161,7 +161,7 @@ O upgraded, 0 newly installed, 0 to remove and 5 not upgraded.
 vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 
-**-Ansible:**Ansible is an open-source automation tool that helps you automate repetitive tasks. It allows you to define and manage your infrastructure code.
+**Ansible:**Ansible is an open-source automation tool that helps you automate repetitive tasks. It allows you to define and manage your infrastructure code.
 
 **Check Ansible:-**
 ```
