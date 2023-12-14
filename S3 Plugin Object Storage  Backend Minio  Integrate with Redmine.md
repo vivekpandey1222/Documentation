@@ -3,7 +3,7 @@
 # Table of Content
 [Minio](#minio)
 
-[Minio-Testing](#minio-testing)
+[Minio-Testing](#Minio-Testing)
 
 [Redmine-Setup](#3redmine-setup)
 
