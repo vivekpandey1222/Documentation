@@ -149,7 +149,7 @@ Login with your username and password.
 
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 2.Minio Testing:-
+## 2.Minio Testing :-
 
 Testing Minio object storage bucket using ansiblePlaybook
 
