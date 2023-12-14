@@ -3,9 +3,9 @@
 # Table of Content
 [Minio](#minio)
 
-- [MinioTesting](#miniotesting)
+[MinioTesting](#miniotesting)
 
-- [Redmine-Setup](#3redmine-setup)
+[Redmine-Setup](#3redmine-setup)
 
 [s3-plugins-integration](#4s3-plugins-integration)
 
