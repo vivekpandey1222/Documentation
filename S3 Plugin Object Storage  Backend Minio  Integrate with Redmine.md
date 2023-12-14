@@ -1,21 +1,5 @@
 ## S3 Plugin Object Storage Backend Minio Integrate with Redmine
 
-# Table of Content
-[Minio](#minio)
-
-[MinioTesting](#miniotesting)
-
-[Redmine-Setup](#3redmine-setup)
-
-[s3-plugins-integration](#4s3-plugins-integration)
-
-[testing-and-test-case](#5testing-and-test-case)
-
-[generate-yaml-file](#6generate-yaml-file)
-
-[launch-pod-using-yaml](#7launch-pod-using-yaml)
-
-
 **Linux Distribution-**
 
 Distributor Id - Ubuntu
@@ -36,7 +20,7 @@ sudo apt update
 ```
 sudo apt install podman
 ```
-### output
+**output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
 [sudo] password for vivek:
@@ -59,7 +43,7 @@ computer.
 ```
 which podman
 ```
-### Output
+**Output**
 ```
 /usr/bin/podman
 ```
@@ -67,7 +51,7 @@ which podman
 -**Which :** Which command is used to locate the full path of the executable file.
 
 —----------------------------------------------------------------------------------------------------------------------------
-# MINIO
+
 ## 1.Minio:-
 
 Minio is an open-source object storage server that is compatible with S3. Minio is the best server which is suited for storing unstructured data, like photos, videos,  backups, and more. 
@@ -119,7 +103,7 @@ chmod +x pod-minio.sh
 ```
 podman ps
 ```
-### Output
+**Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
 CONTAINER ID  IMAGE                                     COMMAND               CREATED       STATUS                PORTS                                           NAMES
@@ -148,7 +132,7 @@ Login with your username and password.
        
 
 —----------------------------------------------------------------------------------------------------------------------------
-# Minio Testing
+
 ## 2.Minio Testing :-
 
 Testing Minio object storage bucket using ansiblePlaybook
@@ -157,7 +141,7 @@ Testing Minio object storage bucket using ansiblePlaybook
 ```
 sudo apt install ansible
 ```
-### Output
+**Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install ansible
 [sudo] password for vivek:
@@ -175,7 +159,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 which ansible
 ```
-### Output
+**Output**
 ```
 /usr/bin/ansible
 ```
@@ -330,7 +314,7 @@ Go Root directory in redmine container
 ```
 podman exec -it redmine-app-new /bin/bash
 ```
-### example
+**example**
 ```
 vivek@vivek-HP-EliteBook-840-G2:-$ podman exec -it redmine-app-new /bin/bash
 root@postgres-redmine:/usr/src/redmine#
@@ -410,7 +394,7 @@ Then run this command 
 ```
 rake redmine:plugins
 ```
-### Output
+**Output**
 
 ```
 root@postgres-redmine:/usr/src/redmine/config# rake redmine:plugins (in /usr/src/redmine)
@@ -425,7 +409,7 @@ root@postgres-redmine:/usr/src/redmine/config#
 ```
 podman pod restart postgres-redmine
 ```
-### Output
+**Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman pod restart postgres-redmine 
 9d33b0c6d766af131f72070d5c51506daa2464ca6dc1e0e98e6ac1c6b3338ec0
@@ -433,7 +417,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$ podman pod restart postgres-redmine
 ```
 podman ps
 ```
-### Output
+**Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman pod ps
 POD ID        NAME              STATUS      CREATED       INFRA ID      # OF CONTAINERS
@@ -453,7 +437,7 @@ commit command is used to create image of container 
 ```
 podman commit redmine-app-new localhost/redmine-app-new-pandey-v1
 ```
-### Output
+**Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman commit redmine-app-new localhost/redmi ne-app-new-pandey-v1
 Getting image source signatures
@@ -479,7 +463,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 podman images
 ```
-### Output
+**Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman images
 REPOSITORY                             TAG          IMAGE ID      CREATED       SIZE
@@ -693,7 +677,7 @@ example
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman pod rm postgres-redmine --force
 ```
-### Output
+**Output**
 3d03764227139c340b7dabb6cca395930fb9d998f939652ce122b6bb569327cc
 
 **Now Create pod using yaml command:**
@@ -702,7 +686,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$ podman pod rm postgres-redmine --force
 ```
 podman play kube kube-postgres-redmine.yaml
 ```
-### Output
+**Output**
 ```
 Trying to pull docker.io/library/postgres:latest...
 Getting image source signatures
