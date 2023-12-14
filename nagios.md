@@ -1,26 +1,17 @@
 **Installation of Nagios in Ubuntu 20.04**
 
-## Table of Content
 
-[1.Linuxdistriution](#1linuxdistribution)
-
-[2.Prerequisites-tool](#2prerequisites-tool)
-
-[3.podman](#3podman)
-
-[4.nagios](#4nagios)
-
-### 1.Linux Distribution-
+ # 1.Linux Distribution-
 
 Distributor Id - Ubuntu
 
 Version - 20.04
 
-### 2.Prerequisites tool-
+# 2.Prerequisites tool-
 
 Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)
 
-### 3.Podman :-**
+# 3.Podman :-**
 
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
 
@@ -103,7 +94,7 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$
 ```
 -**Which :** Which command is used to locate the full path of the executable file.
 
-### 4.Nagios:-
+# 4.Nagios:-
 Nagios is a monitoring system used for keeping track of the health and performance of computer systems, networks, and infrastructure components. It helps administrators and IT professionals by providing real-time insights into the status of various resources.
 
 **Now search the Nagios image-**
