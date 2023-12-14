@@ -3,7 +3,7 @@
 # Table of Content
 [Minio](#minio)
 
-[Minio Testing](#Minio Testing)
+[MinioTesting](#MinioTesting)
 
 [MinioTesting](#MinioTesting)
 
