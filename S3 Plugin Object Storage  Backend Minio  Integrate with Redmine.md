@@ -5,8 +5,6 @@
 
 [MinioTesting](#MinioTesting)
 
-[MinioTesting](#MinioTesting)
-
 [Redmine-Setup](#3redmine-setup)
 
 [s3-plugins-integration](#4s3-plugins-integration)
