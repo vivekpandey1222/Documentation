@@ -37,6 +37,7 @@ VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
 **cat**-cat stands for "concatenate" and Its primary purpose is to concatenate and display the content of files.
+
 **/etc/os-release**- Os-release is a file located in the /etc directory on Linux systems.
 
 **Add Repository-**
@@ -48,8 +49,11 @@ Podman is not in the default Ubuntu repository, we need to add the Kubic reposit
 echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu\_${VERSION\_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
 ```
 **echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /"**: echo is a command that simply prints the specified text to the standard output.
+
 **sudo**: This command allows a permitted user to execute a command as the superuser.
+
 **tee**: This is a command that reads from standard input and writes to standard output and files.
+
 **/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list**: This is the path to the file where the repository entry will be saved. 
 
 
