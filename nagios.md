@@ -148,6 +148,7 @@ CONTAINER ID  IMAGE                                 COMMAND   
 0f41ef7d6d11  docker.io/jasonrivers/nagios:latest   /usr/local/bin/st...  37 hours ago  Up 8 seconds ago  0.0.0.0:8080->80/tcp                        nagios
 ```
 **podman**: this command is used for managing containers and container images.
+
 **ps**: ps command is short for "process status." When used with podman, it shows the status of containers.
 
 Now you can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and **open By default username “nagiosadmin” and password "nagios".**
