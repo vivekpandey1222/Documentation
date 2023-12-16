@@ -17,7 +17,7 @@ Podman is an open-source container management tool that allows users to manage c
 
 **Before Install Podman check OS version (If version is 20.04 then add repository)**
 
-Check OS Release -
+Check OS Version -
 ```
 cat /etc/os-release
 ```
