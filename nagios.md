@@ -36,6 +36,9 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
+**cat**-cat stands for "concatenate" and Its primary purpose is to concatenate and display the content of files.
+**/etc/os-release**- Os-release is a file located in the /etc directory on Linux systems.
+
 **Add Repository-**
 
 Podman is not in the default Ubuntu repository, we need to add the Kubic repository to be able to download the podman package. 
@@ -44,17 +47,11 @@ Podman is not in the default Ubuntu repository, we need to add the Kubic reposit
 ```
 echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu\_${VERSION\_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
 ```
+**echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /"**: echo is a command that simply prints the specified text to the standard output.
+**sudo**: This command allows a permitted user to execute a command as the superuser.
+**tee**: This is a command that reads from standard input and writes to standard output and files.
+**/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list**: This is the path to the file where the repository entry will be saved. 
 
-**Check curl if installed then no need to install again -**
-
-**Install curl-**
-```
-sudo snap install curl
-```
-Then, use the command below to download and add the GPG key. This is needed to make sure the downloaded package is good.
-```
-curl -L "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers\:/stable/xUbuntu\_${VERSION\_ID}/Release.key" | sudo apt-key add -
-```
 
 **Update system:-**
 ```
@@ -146,6 +143,9 @@ CONTAINER ID  IMAGE                                 COMMAND   
 
 0f41ef7d6d11  docker.io/jasonrivers/nagios:latest   /usr/local/bin/st...  37 hours ago  Up 8 seconds ago  0.0.0.0:8080->80/tcp                        nagios
 ```
+**podman**: this command is used for managing containers and container images.
+**ps**: ps command is short for "process status." When used with podman, it shows the status of containers.
+
 Now you can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and **open By default username “nagiosadmin” and password "nagios".**
 
 Now access the web page <http://localhost:8080>
