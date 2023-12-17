@@ -28,6 +28,7 @@ sudo apt update
 ```
 sudo apt install podman
 ```
+**Output**:
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
 [sudo] password for vivek:
@@ -38,7 +39,6 @@ podman is already the newest version (100:3.4.2-5).
 0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
 ```
 **- sudo:** This part of the command is like saying "I want to do something important." It
-
 stands for "superuser do" and allows you to perform tasks that affect your computer's
 system, like installing software.
 
@@ -52,16 +52,29 @@ computer.
 ```
 which podman
 ```
+**Output**:
 ```
-vivek\@vivek-HP-EliteBook-840-G2:~$ which podman
+vivek@vivek-HP-EliteBook-840-G2:~$ which podman
 /usr/bin/podman 
 vivek@vivek-HP-EliteBook-840-G2:~$
 ```
--**Which :** Which command is used to locate the full path of the executable file.
+**Which**: Which command is used to locate the full path of the executable file.
 
+**Setup PostgreSQL**:
 
+**Search the Postgres Image in podman**:
+```
+podman search postgres
+```
+**Output**:
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ podman search postgres
+INDEX       NAME                                                 DESCRIPTION                                      STARS       OFFICIAL    AUTOMATED
+docker.io   docker.io/library/postgres                           The PostgreSQL object-relational database sy...  12889       [OK]       
+```
+**copy the image name and paste it when run the container**:
 
-**Setup PostgreSQL:-**
+**run the container of postgres**:
 ```
 podman run -d -p 5432:5432 -v /home/vivek/postgres/data:/var/lib/pgsql/data --name postgres -e POSTGRES_PASSWORD=your_password docker.io/library/postgres:latest
 ```
@@ -79,10 +92,11 @@ podman run -d -p 5432:5432 -v /home/vivek/postgres/data:/var/lib/pgsql/data --na
 
 **docker.io/library/postgres:latest:** This is the image name for the PostgreSQL container. It tells Podman which container image to use. The image is pulled from the Docker Hub.
 
-Check running container-
+Check running container of postgres-
 ```
 podman ps
 ```
+**Output**:
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman ps
 
@@ -94,6 +108,7 @@ Now go to postgres container-
 ```
 podman exec -it postgres /bin/bash
 ```
+**Output**:
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman exec -it postgres bash
 root\@48ef2005155e:/#
@@ -110,8 +125,9 @@ Now check the Postgres version-
 ```
  psql –version
 ```
+**Output**:
 ```
-root\@48ef2005155e:/# psql --version
+root@48ef2005155e:/# psql --version
 psql (PostgreSQL) 16.1 (Debian 16.1-1.pgdg120+1)
 root\@48ef2005155e:/#
 ```
@@ -123,8 +139,9 @@ To connect to a PostgreSQL database with a specific user-
 ```
 psql -U postgres
 ```
+**Output**:
 ```
-root\@48ef2005155e:/# psql -U postgres
+root@48ef2005155e:/# psql -U postgres
 psql (16.1 (Debian 16.1-1.pgdg120+1))
 Type "help" for help.
 postgres=#
@@ -137,6 +154,7 @@ To see available list of database -
 ```
 \l
 ```
+**Output**:
 ```
 postgres=# \l
                                            List of databases
@@ -153,7 +171,7 @@ postgres=# \l
 ```
 
 
-**\ :** The backslash (\\) commands, also known as meta-commands, are specific to the psql command-line tool and provide a convenient way to interact with the PostgreSQL database.
+**\ :** The backslash (\) commands are specific to the psql command-line tool and provide a convenient way to interact with the PostgreSQL database.
 
 **l :** This is a shorthand for the "list" command in psql.
 
@@ -163,6 +181,7 @@ Now we create database -
 ```
 create database <db name>;
 ```
+**Output**:
 ```
 postgres=# create database keenable;
 CREATE DATABASE
@@ -178,6 +197,7 @@ To Switch other database-
 ```
 \c <database name>
 ```
+**Output**:
 ```
 postgres=# \c keenable;
 You are now connected to database "keenable" as user "postgres".
@@ -190,9 +210,10 @@ If you want to exit the database-
 ```
 \q
 ```
+**Output**:
 ```
 keenable=# \q
-root\@48ef2005155e:/#
+root@48ef2005155e:/#
 ```
 **\q:** This is a shorthand for the "quit" command in psql.
 It is used to exit the PostgreSQL interactive terminal (psql) and return to the regular command prompt or shell.
@@ -203,6 +224,7 @@ Now create a schema-
 ```
 create schema <schema_name>;
 ```
+**Output**:
 ```
 keenable=# create schema new;
 CREATE SCHEMA
@@ -212,8 +234,9 @@ keenable=#
 
 Now create a table-
 ```
-create table intern;
+create table intern (id int not null, fname text not null, lname text not null, joining\_date int not null, month text not null, age int not null, city text not null);
 ```
+**Output**:
 ```
 keenable=# create table intern (id int not null, fname text not null, lname text not null, joining\_date int not null, month text not null, age int not null, city text not null);
 CREATE TABLE
@@ -239,6 +262,7 @@ To check list all tables in the current database:
 ```
 \d
 ```
+**Output**:
 ```
 keenable=# \d
       List of relations
@@ -253,6 +277,7 @@ To list tables with additional details (columns, types, constraints):
 ```
 \d tablename
 ```
+**Output**:
 ```
 keenable=# \d intern
                Table "public.intern"
@@ -271,6 +296,7 @@ Insert value into table:
 ```
 insert into intern values (101, 'manish', 'burman', 6, 'september', 21, 'delhi');
 ```
+**Output**:
 ```
 keenable=# insert into intern values (101, 'manish', 'burman', 6, 'september', 21, 'delhi');
 INSERT 0 1
@@ -287,6 +313,7 @@ keenable=#
 ```
 update intern set fname= 'raghav' where fname ='manish';
 ```
+**Output**:
 ```
 keenable=# update intern set fname= 'raghav' where fname ='manish';
 UPDATE 1
@@ -311,6 +338,7 @@ fname = 'manish': This is the condition. It ensures that only rows where the "fn
 ```
 delete from intern where fname = 'raghav';
 ```
+**Output**:
 ```
 keenable=# delete from intern where fname = 'raghav';
 DELETE 1
@@ -327,6 +355,7 @@ fname = 'raghav': This is the condition. It ensures that only rows where the "fn
 ```
 Alter table contractor add column email text;
 ```
+**Output**:
 ```
 keenable=# alter table contractor add column email text;
 ALTER TABLE
@@ -348,6 +377,7 @@ text: This specifies the data type for the new column. In this case, the data ty
 ```
 Alter table contractor drop column email;
 ```
+**Output**:
 ```
 keenable=#Alter table  contractor drop column email;
 ALTER TABLE
@@ -365,10 +395,12 @@ email: This is the name of the column that you want to drop.
 ```
 insert into intern values (106, 'kanha', 'kumar', 14, 'august', 28, 'bihar');
 ```
+**Output**:
 ```
 keenable=# insert into intern values (106, 'kanha', 'kumar', 14, 'august', 28, 'bihar');
 INSERT 0 1
 ```
+
 ```
 Delete from intern where fname = 'kanha';
 ```
