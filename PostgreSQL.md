@@ -71,6 +71,12 @@ vivek@vivek-HP-EliteBook-840-G2:~$ podman search postgres
 INDEX       NAME                                                 DESCRIPTION                                      STARS       OFFICIAL    AUTOMATED
 docker.io   docker.io/library/postgres                           The PostgreSQL object-relational database sy...  12889       [OK]       
 ```
+**podman**: This is a container management tool.
+
+**search**: This subcommand is used to search for container images available in the container registry.
+
+**postgres**: This is the search keyword indicating the container image you are looking for. 
+
 **copy the image name and paste it when run the container**:
 
 **run the container of postgres**:
