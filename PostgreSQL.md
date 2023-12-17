@@ -6,9 +6,9 @@ Distributor Id - Ubuntu
 
 Version - 20.04
 
-**Prerequisites tool-**
+**Prerequisite tool-**
 
-Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)
+Podman (version 3.4.2)
 
 **Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It is an advanced Enterprise class. It supports SQL (relational) and json (non-relational).
 
@@ -412,7 +412,7 @@ DELETE 1
 ```
 Alter table contractor rename column morning to evening;
 ```
-
+**Output**:
 ```
 keenable=#Alter table contractor rename column morning to evening;
 ALTER TABLE
@@ -421,14 +421,17 @@ ALTER TABLE
 ```
 ALTER TABLE intern RENAME TO interns;
 ```
+**Output**:
 ```
 keenable=# ALTER TABLE intern RENAME TO interns;
 ALTER TABLE
 ```
-**Select keyword-**
+**Select keyword**:
+A "keyword" in Postgres is a reserved term used to represent specific operations in SQL queries, such as SELECT, INSERT, UPDATE, DELETE, etc
 ```
 select * from <table_name>;
 ```
+**Output**:
 ```
 keenable=# select * from intern;
  id  | fname  | lname  | joining_date |   month   | age | city  
@@ -440,14 +443,15 @@ keenable=# select * from intern;
 
 ***:** The asterisk (*) represents all columns in the table. It essentially means "select everything."
 
-**FROM <table_name>:** This part specifies the table from which you want to retrieve the data. Replace \<table\_name> with the actual name of the table.
+**FROM <table_name>**: This part specifies the table from which you want to retrieve the data. Replace \<table\_name> with the actual name of the table.
 
-**Clause:-** A clause is a part of a SQL statement that specifies conditions for the retrieval or manipulation of data. Clauses are used to filter, sort the results of a query.
+**Clause**: A clause is a part of a SQL statement that specifies conditions for the retrieval or manipulation of data. Clauses are used to filter, sort the results of a query.
 
-**WHERE Clause:** It is used to provide conditions in SELECT, UPDATE, and DELETE statements to filter rows based on a specified condition.
+**WHERE Clause**: It is used to provide conditions in SELECT, UPDATE, and DELETE statements to filter rows based on a specified condition.
 ```
 select * from intern where age>=20;
 ```
+**Output**:
 ```
 keenable=# select * from intern where age>=20;
  id  | fname  | lname  | joining_date |   month   | age | city  
@@ -462,6 +466,7 @@ WHERE age >= 20: This is a condition specified in the WHERE clause. It filters t
 ```
 select * from intern order by age asc;
 ```
+**Output**:
 ```
 keenable=# select * from intern order by age asc;
  id  |  fname   | lname  | joining_date |   month   | age |   city    
@@ -477,13 +482,13 @@ ORDER BY age ASC: This clause is used to sort the result set based on the specif
 ```
 Select name, sum(id) from intern group by name;
 ```
-**HAVING Clause:** It is used to provide a condition and SELECT statements with GROUP BY to filter grouped rows based on a condition.
+**HAVING Clause**: It is used to provide a condition and SELECT statements with GROUP BY to filter grouped rows based on a condition.
 ```
 select  department_id, AVG(salary) from employees GROUP BY department_id HAVING AVG(salary) > 50000;
 ```
-**Operator:** Operators are symbols that used to perform operations on one or more expressions or values, and they play a crucial role in constructing SQL queries.Like  
+**Operator**: Operators are symbols that used to perform operations on one or more expressions or values, and they play a crucial role in constructing SQL queries.Like  
 
-**Arithmetic Operators:**
+**Arithmetic Operators**:
 
 + (addition)
 
@@ -495,7 +500,7 @@ select  department_id, AVG(salary) from employees GROUP BY department_id HAVING
 
 % (modulo)
 
-**Comparison Operators:**
+**Comparison Operators**:
 
 = (equal to)
 
@@ -509,7 +514,7 @@ select  department_id, AVG(salary) from employees GROUP BY department_id HAVING
 
 >= (greater than or equal to)
 
-**Logical Operators:**
+**Logical Operators**:
 
 AND (logical AND)
 
@@ -517,7 +522,7 @@ OR (logical OR)
 
 NOT (logical NOT)
 
-**Pattern Matching Operators:**
+**Pattern Matching Operators**:
 
 LIKE (pattern matching with wildcards)
 
@@ -527,11 +532,12 @@ ILIKE (case-insensitive pattern matching)
 
 || (concatenates two strings)
 
-**AND:** The AND operator is used to combine multiple conditions in a SQL statement.
+**AND**: The AND operator is used to combine multiple conditions in a SQL statement.
 It returns true only if all the conditions joined by AND are true.
 ```
 select * from intern where id =105 AND age>23;
 ```
+**Output**:
 ```
 keenable=# select * from intern where id =105 AND age>23;
  id  |  fname   | lname  | joining_date | month  | age |  city   
@@ -543,6 +549,7 @@ It returns true if at least one of the conditions joined by OR is true.
 ```
 select * from intern where age>23 or id=106;
 ```
+**Output**:
 ```
 keenable=# select * from intern where age>23 or id=106;
  id  |  fname   | lname  | joining_date | month  | age |  city   
@@ -567,6 +574,7 @@ WHERE fname LIKE 'k%';
 ```
 select * from intern where age in (19,21,22);
 ```
+**Output**:
 ```
 keenable=# select * from intern where age in (19,21,22);
  id  | fname  | lname  | joining_date |   month   | age | city  
@@ -577,6 +585,7 @@ keenable=# select * from intern where age in (19,21,22);
 ```
 select * from intern where age not in(23,23,27);
 ```
+**Output**:
 ```
 keenable=# select * from intern where age not in(23,23,27);
  id  | fname  | lname  | joining_date |   month   | age | city  
@@ -587,6 +596,7 @@ keenable=# select * from intern where age not in(23,23,27);
 ```
 select * from intern where age between 21 and  23;
 ```
+**Output**:
 ```
 keenable=# select * from intern where age between 21 and  23;
  id  | fname  | lname  | joining_date |   month   | age |   city    
@@ -621,10 +631,11 @@ Select fname, name from intern cross join contractor;
 ```
 **Inbuild function:** In PostgreSQL, an "inbuilt function" refers to a pre-defined operation that you can use in your SQL queries to perform specific tasks. These functions are already built into the database system.
 
-**Sum:** Adds up all the values in a numeric column.
+**Sum**: Adds up all the values in a numeric column.
 ```
 Select sum(salary) from table_name;
 ```
+**Output**:
 ```
 keenable=# select sum(salary) as salary from employee;
  salary
@@ -636,6 +647,7 @@ keenable=# select sum(salary) as salary from employee;
 ```
 Select avg(age) from intern;
 ```
+**Output**:
 ```
 keenable=# select avg(age) from intern;
       avg     
@@ -646,6 +658,7 @@ keenable=# select avg(age) from intern;
 ```
 Select max(salary) from employee;
 ```
+**Otput**:
 ```
 keenable=# select max(salary) from employee;
   max  
@@ -656,6 +669,7 @@ keenable=# select max(salary) from employee;
 ```
 Select min(salary) from employee;
 ```
+**Output**:
 ```
 keenable=# select min(salary) from employee;
   min  
@@ -666,6 +680,7 @@ keenable=# select min(salary) from employee;
 ```
 select count(age) from intern;
 ```
+**Output**:
 ```
 keenable=# SELECT COUNT(age) FROM intern;
  count
@@ -681,6 +696,7 @@ Event- update, delete, select. 
 ```
 Select salary as total from employee;
 ```
+**Output**:
 ```
 keenable=# SELECT fname AS "First", lname AS "Last"
 FROM intern;
@@ -714,6 +730,7 @@ If you want to access the value then run these command-
 ```
 Create type mood as enum (‘sad’,’ok’,’happy’);
 ```
+**Output**:
 ```
 keenable=# create type mood as enum('sad','ok','happy');
 CREATE TYPE
@@ -731,6 +748,7 @@ Roll no must be greater than 1000 in the table. If we insert roll_no in table le
 ```
 Create table rough (roll_no int check(roll_no > 1000), name text not null);
 ```
+**Output**:
 ```
 keenable=# Create table rough (roll_no int check(roll_no > 1000), name text not null);
 Create table
@@ -744,6 +762,7 @@ DETAIL:  Failing row contains (990, ramu).
 ```
 SELECT LENGTH('Hello') AS length;
 ```
+**Output**:
 ```
 keenable=# SELECT LENGTH('Hello') AS length;
 
@@ -755,6 +774,7 @@ keenable=# SELECT LENGTH('Hello') AS length;
 ```
 SELECT LOWER('Hello') AS lowercase;
 ```
+**Output**:
 ```
 keenable=# SELECT LOWER('Hello') AS lowercase;
  lowercase
@@ -765,6 +785,7 @@ keenable=# SELECT LOWER('Hello') AS lowercase;
 ```
 SELECT UPPER('world') AS uppercase;
 ```
+**Output**:
 ```
 keenable=# SELECT UPPER('world') AS uppercase;
  uppercase
@@ -775,6 +796,7 @@ keenable=# SELECT UPPER('world') AS uppercase;
 ```
 SELECT SUBSTRING('Hello World' FROM 7 FOR 5) AS extracted_part;
 ```
+**Output**:
 ```
 keenable=# SELECT SUBSTRING('Hello World' FROM 7 FOR 5) AS extracted_part;
  extracted_part
@@ -785,6 +807,7 @@ keenable=# SELECT SUBSTRING('Hello World' FROM 7 FOR 5) AS extracted_part;
 ```
 SELECT POSITION('lo' IN 'Hello') AS position;
 ```
+**Output**:
 ```
 keenable=# SELECT POSITION('lo' IN 'Hello') AS position;
  position
@@ -795,6 +818,7 @@ keenable=# SELECT POSITION('lo' IN 'Hello') AS position;
 ```
 SELECT ASCII('A') AS ascii_value;
 ```
+**Output**:
 ```
 keenable=# SELECT ASCII('A') AS ascii_value;
  ascii_value
@@ -805,6 +829,7 @@ keenable=# SELECT ASCII('A') AS ascii_value;
 ```
 SELECT REVERSE('kumar') AS reversed_string;
 ```
+**Output**:
 ```
 keenable=# SELECT REVERSE('kumar') AS reversed_string;
  reversed_string
@@ -815,6 +840,7 @@ keenable=# SELECT REVERSE('kumar') AS reversed_string;
 ```
 SELECT REPEAT('vivek', 3) AS repeated_string;
 ```
+**Output**:
 ```
 keenable=# SELECT REPEAT('vivek', 3) AS repeated_string;
  repeated_string
@@ -825,6 +851,7 @@ keenable=# SELECT REPEAT('vivek', 3) AS repeated_string;
 ```
 SELECT CONCAT('Hello ', 'World') AS concatenated_string;
 ```
+**Output**:
 ```
  SELECT CONCAT('Hello ', 'World') AS concatenated_string;
  concatenated_string
