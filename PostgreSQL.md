@@ -1,6 +1,6 @@
                     PostgreSQL
 
-**Linux Distribution-**
+## Linux Distribution-
 
 Distributor Id - Ubuntu
 
@@ -59,7 +59,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 **Which**: Which command is used to locate the full path of the executable file.
 
-**Setup PostgreSQL**:
+## Setup PostgreSQL:
 
 **Search the Postgres Image in podman**:
 ```
@@ -235,7 +235,8 @@ keenable=# create schema new;
 CREATE SCHEMA
 keenable=#
 ```
-**Table:** A table in PostgreSQL is like a spreadsheet where information is organized into rows and columns.Each row represents a specific thing, like a customer or product, and each column holds a particular piece of information, such as a name or price. Tables help keep data organised, making it easier to find and manage.
+## Table:
+A table in PostgreSQL is like a spreadsheet where information is organized into rows and columns.Each row represents a specific thing, like a customer or product, and each column holds a particular piece of information, such as a name or price. Tables help keep data organised, making it easier to find and manage.
 
 Now create a table-
 ```
@@ -431,8 +432,10 @@ ALTER TABLE intern RENAME TO interns;
 keenable=# ALTER TABLE intern RENAME TO interns;
 ALTER TABLE
 ```
-**Select keyword**:
+## keyword:
 A "keyword" in Postgres is a reserved term used to represent specific operations in SQL queries, such as SELECT, INSERT, UPDATE, DELETE, etc
+
+**Select keyword**:
 ```
 select * from <table_name>;
 ```
@@ -491,7 +494,8 @@ Select name, sum(id) from intern group by name;
 ```
 select  department_id, AVG(salary) from employees GROUP BY department_id HAVING AVG(salary) > 50000;
 ```
-**Operator**: Operators are symbols that used to perform operations on one or more expressions or values, and they play a crucial role in constructing SQL queries.Like  
+## Operator: 
+Operators are symbols that used to perform operations on one or more expressions or values, and they play a crucial role in constructing SQL queries.Like  
 
 **Arithmetic Operators**:
 
@@ -634,7 +638,8 @@ Select intern.fname, intern.age, contractor.name from contractor full outer join
 ```
 Select fname, name from intern cross join contractor;
 ```
-**Inbuild function:** In PostgreSQL, an "inbuilt function" refers to a pre-defined operation that you can use in your SQL queries to perform specific tasks. These functions are already built into the database system.
+## Inbuild function:
+In PostgreSQL, an "inbuilt function" refers to a pre-defined operation that you can use in your SQL queries to perform specific tasks. These functions are already built into the database system.
 
 **Sum**: Adds up all the values in a numeric column.
 ```
@@ -692,7 +697,8 @@ keenable=# SELECT COUNT(age) FROM intern;
 -------
  4
 ```
-**User defined function:** A user-defined function (UDF) is like a custom operation or calculation that you create in a database to perform a specific task.
+## User defined function:
+A user-defined function (UDF) is like a custom operation or calculation that you create in a database to perform a specific task.
 
 **Triggers:** Triggers are a set of action database call back functions that run  automatically when a specified database event is performed on a specified table.
 Event- update, delete, select. 
@@ -761,7 +767,8 @@ keenable=# insert into rough values (990,'ramu');
 ERROR:  new row for relation "rough" violates check constraint "rough_roll_no_check"
 DETAIL:  Failing row contains (990, ramu).
 ```
-**String:** string functions are operations or methods that perform various tasks on strings (text data).
+## String: 
+String functions are operations or methods that perform various tasks on strings (text data).
 
 **Length:** Returns the number of characters in a string.
 ```
