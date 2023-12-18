@@ -1,9 +1,12 @@
-**Installation of Nagios in Ubuntu 20.04**
+## Installation of Nagios in Ubuntu 20.04
 
-# Table of Containts
+## Table of Containts
 - [1. Linux Distribution](#1-linux-distribution)
+- [2. Prerequisite tool](#2-prerequisite-tool)
+- [3. Podman](#3-podman)
+- [4. Nagios](#4-nagios)
 
- # 1.Linux Distribution-
+ # 1.Linux Distribution:
 
 Distributor Id - Ubuntu
 
@@ -97,7 +100,7 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$
 ```
 -**Which :** Which command is used to locate the full path of the executable file.
 
-# 4.Nagios:-
+# 4.Nagios:
 Nagios is a monitoring system used for keeping track of the health and performance of computer systems, networks, and infrastructure components. It helps administrators and IT professionals by providing real-time insights into the status of various resources.
 
 **Now search the Nagios image-**
