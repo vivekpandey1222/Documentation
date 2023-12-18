@@ -1,22 +1,41 @@
-                    PostgreSQL
+                  PostgreSQL
 
-## Linux Distribution-
+## Table of Contents
+[Linux Distribution](#linux-distribution)
+
+[Prerequisite tool](#prerequisite-tool)
+
+[Podman](#podman)
+
+[PostgreSQL](#postgresql)
+
+[PostgreSQL setup](#setup-postgresql)
+
+[Table](#table)
+
+[Keyword](#keyword)
+
+[Operator](#operator)
+
+[Inbuild function](#inbuild-function)
+
+[User defined function](#user-defined-function)
+
+[String](#string)
+
+## Linux Distribution:
 
 Distributor Id - Ubuntu
 
 Version - 20.04
 
-**Prerequisite tool-**
+## Prerequisite tool:
 
 Podman (version 3.4.2)
 
-**Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It is an advanced Enterprise class. It supports SQL (relational) and json (non-relational).
 
-**History:-** PostgreSQL was invented at the Berkeley Computer Science Department, University of California.It started as a project in 1986 with the goal of creating a database system with the minimal features needed to support multiple data types.In the beginning, PostgreSQL ran on UNIX platforms, but now it can run on various platforms, including Windows and MacOS.
 
-**Features:-** Table inheritance user-define type , foreign key view, rule, subquery, asynchronous, replication(fast of db).
-
-**Podman :-**
+## Podman:
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
 
 **Update your system:-**
@@ -59,6 +78,13 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 **Which**: Which command is used to locate the full path of the executable file.
 
+## PostgreSQL:
+**Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It is an advanced Enterprise class. It supports SQL (relational) and json (non-relational).
+
+**History:-** PostgreSQL was invented at the Berkeley Computer Science Department, University of California.It started as a project in 1986 with the goal of creating a database system with the minimal features needed to support multiple data types.In the beginning, PostgreSQL ran on UNIX platforms, but now it can run on various platforms, including Windows and MacOS.
+
+**Features:-** Table inheritance user-define type , foreign key view, rule, subquery, asynchronous, replication(fast of db).
+
 ## Setup PostgreSQL:
 
 **Search the Postgres Image in podman**:
@@ -93,7 +119,7 @@ podman run -d -p 5432:5432 -v /home/vivek/postgres/data:/var/lib/pgsql/data --na
 
 **--name postgres:** This assigns the name "postgres" to the running container.
 
-**-e POSTGRES\_PASSWORD=your\_password:** This sets an environment variable POSTGRES\_PASSWORD within the container, specifying the password.
+**-e POSTGRES_PASSWORD=your_password:** This sets an environment variable POSTGRES_PASSWORD within the container, specifying the password.
 
 **docker.io/library/postgres:latest:** This is the image name for the PostgreSQL container. It tells Podman which container image to use. The image is pulled from the Docker Hub.
 
@@ -103,7 +129,7 @@ podman ps
 ```
 **Output**:
 ```
-vivek\@vivek-HP-EliteBook-840-G2:\~$ podman ps
+vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
 
 CONTAINER ID  IMAGE                          COMMAND CREATED STATUS        PORTS               NAMES
 
@@ -507,21 +533,6 @@ Operators are symbols that used to perform operations on one or more expressions
 
 / (division)
 
-% (modulo)
-
-**Comparison Operators**:
-
-= (equal to)
-
-!= or <> (not equal to)
-
-< (less than)
-
-> (greater than)
-
-<= (less than or equal to)
-
->= (greater than or equal to)
 
 **Logical Operators**:
 
@@ -535,7 +546,6 @@ NOT (logical NOT)
 
 LIKE (pattern matching with wildcards)
 
-ILIKE (case-insensitive pattern matching)
 
 **String Concatenation Operator:**
 
