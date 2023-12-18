@@ -1,5 +1,7 @@
 **Installation of Nagios in Ubuntu 20.04**
 
+# Table of Containts
+- [1. Linux Distribution](#1-linux-distribution)
 
  # 1.Linux Distribution-
 
