@@ -29,6 +29,9 @@ Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)
 
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
 
+**Daemon**: A daemon is like a helpful, invisible assistant that works in the background on your computer.
+
+**Daemonless**: Daemonless means doing things without relying on such invisible assistants. It suggests a setup where tasks are managed without continuous background processes.
 
 **Before Install Podman check OS version (If version is 20.04 then add repository)**
 
@@ -36,6 +39,7 @@ Check OS Version -
 ```
 cat /etc/os-release
 ```
+**Output**:
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ cat /etc/os-release
 NAME="Ubuntu"
@@ -51,6 +55,10 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 VERSION_CODENAME=focal
 UBUNTU_CODENAME=focal
 ```
+**Version**: is like a specific edition of software or a product. It often represents a set of features or changes. Like Ubuntu version-20.04, 22.04.
+
+**Release**:when a specific version of software or a product is made officially available to the public.
+
 **cat**-cat stands for "concatenate" and Its primary purpose is to concatenate and display the content of files.
 
 **/etc/os-release**- Os-release is a file located in the /etc directory on Linux systems.
@@ -58,6 +66,7 @@ UBUNTU_CODENAME=focal
 **Add Repository-**
 
 Podman is not in the default Ubuntu repository, we need to add the Kubic repository to be able to download the podman package. 
+**Repository**: A"repository" is a place where things are stored and organised , like files, code, or other project-related items.
 
 **Adding repository Ubuntu-**
 ```
@@ -71,6 +80,20 @@ echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontaine
 
 **/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list**: This is the path to the file where the repository entry will be saved. 
 
+ **Check curl if installed then no need to install again**-
+**Install curl**
+**What is the need to use curl**?
+
+It is not mandatory to use curl in podman but curl is a command-line tool that  you exchange data between your device and a server through a command-line interface (CLI).
+
+```
+	sudo snap install curl
+```
+**snap**: Snap is a package management system and application packaging format developed by Canonical for Linux distributions. It allows applications to be bundled with their dependencies and run in a containerized environment called a snap.
+
+**install**: This is the subcommand used with snap to indicate that you want to install a specific application or package.
+
+**curl**: This is the name of the package (in this case, the curl tool) that you want to install. 
 
 **Update system:-**
 ```
@@ -80,6 +103,7 @@ sudo apt update
 ```
 sudo apt install podman
 ```
+**Output**:
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install podman
 [sudo] password for vivek:
@@ -103,6 +127,7 @@ computer.
 ```
 which podman
 ```
+**Output**:
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ which podman
 /usr/bin/podman 
@@ -155,6 +180,7 @@ Now check the running container this command-
 ```
 podman ps
 ```
+**Output**:
 ```
 vivek\@vivek-HP-EliteBook-840-G2:\~$ podman ps
 
