@@ -20,7 +20,7 @@
 
 [Launch pod using yaml](#launch-pod-using-yaml)
 
-## Linux Distribution-
+## Linux Distribution:
 
 Distributor Id - Ubuntu
 
