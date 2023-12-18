@@ -12,6 +12,8 @@
 
 
  # Linux Distribution
+ 
+ **Distribution**: A Linux Distribution refers to a kind of operating system known as Linux. It is a packaged combination that includes the Linux kernel  along with various essential programs and tools. 
 
 Distributor Id - Ubuntu
 
@@ -21,9 +23,12 @@ Version - 20.04
 
 Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)
 
+**Base**: "Base" refers to the basic state of your computer. When we say "apply some software or application to base," we are talking about the initial state or existing settings as they appear on your local machine. I mentioned about nagios"Which tells you that you can use podman or apply it to your own computer.
+
 # Podman
 
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
+
 
 **Before Install Podman check OS version (If version is 20.04 then add repository)**
 
