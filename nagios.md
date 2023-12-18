@@ -162,19 +162,19 @@ This command will start the Nagios container with the specified options. You can
 ```
 podman run -p 8080:80 --cap-add=NET_RAW -v /home/vivek/rough/nagios:/usr/local/nagios/etc/ --name nagios -d docker.io/jasonrivers/nagios
 ```
-podman run: This is the command to run a container using Podman.
+**podman run**: This is the command to run a container using Podman.
 
--p 8080:80: This option maps port 8080 on the host to port 80 on the container.
+**-p 8080:80**: This option maps port 8080 on the host to port 80 on the container.
 
---cap-add=NET_RAW: This command is like giving a special power to the container. This power allows the container to do advanced things with computer networks.
+**--cap-add=NET_RAW**: This command is like giving a special power to the container. This power allows the container to do advanced things with computer networks.
 
--v /home/vivek/rough/nagios:/usr/local/nagios/etc/: This option mounts the local directory.
+**-v /home/vivek/rough/nagios**:/usr/local/nagios/etc/: This option mounts the local directory.
 
---name nagios: This option assigns the name "nagios" to the running container.
+**--name nagios**: This option assigns the name "nagios" to the running container.
 
--d: This option runs the container in detached mode.
+**-d**: This option runs the container in detached mode.
 
-docker.io/jasonrivers/nagios: This is the name of the Docker image used to create the container. 
+**docker.io/jasonrivers/nagios**: This is the name of the Docker image used to create the container. 
 
 Now check the running container this command-
 ```
