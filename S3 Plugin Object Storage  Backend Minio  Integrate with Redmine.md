@@ -1,13 +1,32 @@
 ## S3 Plugin Object Storage Backend Minio Integrate with Redmine
 
-**Linux Distribution-**
+## Table of Contents
+[Linux Distribution](#linux-distribution)
+
+[Podman](#podman)
+
+[Minio](#minio)
+
+[Minio Testing](#minio-testing)
+
+[Redmine setup](#redmine-setup)
+
+[s3 plugin integration](#s3-plugins-integration)
+
+[Testing and test case](#testing-and-test-case)
+
+[Generate yaml file](#generate-yaml-file)
+
+[Launch pod using yaml](#launch-pod-using-yaml)
+
+## Linux Distribution-
 
 Distributor Id - Ubuntu
 
 Version - 20.04
 
 
-**Podman :-**
+## Podman:
 
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
 
@@ -52,7 +71,7 @@ which podman
 
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 1.Minio:-
+## Minio:
 
 Minio is an open-source object storage server that is compatible with S3. Minio is the best server which is suited for storing unstructured data, like photos, videos,  backups, and more. 
 
@@ -141,7 +160,7 @@ Login with your username and password.
 
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 2.Minio Testing :-
+## Minio Testing:
 
 Testing Minio object storage bucket using ansiblePlaybook
 
@@ -243,7 +262,7 @@ pip install boto3
 **Note:**- If any error show run sudo apt install python3-pip 
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 3.Redmine Setup:-
+## Redmine Setup:
 
 Redmine is a free and open source, web-based project management and issue tracking tool. It allows users to manage multiple projects and subprojects. 
 
@@ -327,7 +346,7 @@ Then create your own username and password.
 
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 4.S3 plugins Integration:-
+## S3 plugins Integration:
 
 Amazon S3, (Simple Storage Service) is a widely used object storage service provided by Amazon Web Services. It enables users to store and retrieve any amount of data at any time over the internet.
 
@@ -494,7 +513,7 @@ localhost/redmine-app-newvivek-v1      latest       b90a40dd470c  2 days ago    
 ```
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 5.Testing and test case :-
+## Testing and test case:
 
 **Creating Ticket:-** 
 
@@ -569,7 +588,7 @@ Able to download data from same ticket
 
 —----------------------------------------------------------------------------------------------------------------------------
 
-## 6.Generate Yaml File:-
+## Generate Yaml File:
 
 Run this command to generate a yaml file.
 ```
@@ -585,7 +604,7 @@ podman generate kube <pod name> > <File Name>.yaml
 
 —---------------------------------------------------------------------------------------------------------------------------.
 
-## 7.Launch Pod using yaml:-
+## Launch Pod using yaml:
 ```
 podman generate kube postgres-redmine > kube-postgres-redmine.yaml
 ```
@@ -737,6 +756,6 @@ a18e224c9b830799ad236f4ae50b7af077edc6eacffc07440c0f7ae57577f5da
 f2d8f00f0bc3df153916cbadaf39c9f60a2cf01080a50b80dea87f28d704fce0
 vivek\@vivek-HP-EliteBook-840-G2:\~$
 ```
--**podman play kube:**This command is used  for deploying and managing containers in a Kubernetes cluster using Podman. 
+**podman play kube:**This command is used  for deploying and managing containers in a Kubernetes cluster using Podman. 
 
-**-kube-postgres-redmine.yaml:** This is the name of the Kubernetes YAML manifest file that you want to deploy.
+**kube-postgres-redmine.yaml:** This is the name of the Kubernetes YAML manifest file that you want to deploy.
