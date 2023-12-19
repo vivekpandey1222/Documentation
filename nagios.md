@@ -21,7 +21,7 @@ Version - 20.04
 
 # Prerequisite tool
 
-Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)
+**Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)**
 
 **Base**: "Base" refers to the basic state of your computer. When we say "apply some software or application to base," we are talking about the initial state or existing settings as they appear on your local machine. I mentioned about nagios"Which tells you that you can use podman or apply it to your own computer.
 
@@ -64,8 +64,8 @@ UBUNTU_CODENAME=focal
 **/etc/os-release**- Os-release is a file located in the /etc directory on Linux systems.
 
 **Add Repository-**
-
 Podman is not in the default Ubuntu repository, we need to add the Kubic repository to be able to download the podman package. 
+
 **Repository**: A"repository" is a place where things are stored and organised , like files, code, or other project-related items.
 
 **Adding repository Ubuntu-**
