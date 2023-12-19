@@ -192,7 +192,7 @@ CONTAINER ID  IMAGE                                 COMMAND   
 
 **ps**: ps command is short for "process status." When used with podman, it shows the status of containers.
 
-Now you can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and **open By default username “nagiosadmin” and password "nagios".**
+Now you can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and **open by default username “nagiosadmin” and password "nagios".**
 
 Now access the web page <http://localhost:8080>
 
