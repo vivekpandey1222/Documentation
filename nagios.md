@@ -138,6 +138,22 @@ vivek\@vivek-HP-EliteBook-840-G2:\~$
 # Nagios
 Nagios is a monitoring system used for keeping track of the health and performance of computer systems, networks, and infrastructure components. It helps administrators and IT professionals by providing real-time insights into the status of various resources.
 
+ 
+**Why Nagios**:
+* Detect all files of network or server issues.
+* It help you to find the root cause of the problem which allow you to get the permanent solution to the peoblem.
+* Reduce downtime.
+* Active monitering of entire infrainstructure.
+* It allow you to moniter and troubleshoot server performance issue.
+
+**Feature**:
+* Oldest and latest
+* Good log and autometic send alert if condition change like- to change condition from normal to critical, warning,pending.
+* You can moniter entire the aplication process with a single features.
+* Moniter network service like- Http,ssh,smtp.
+* It use by default port 5666,5667,5668 to moniter its client.
+
+
 **Now search the Nagios image-**
 ```
 podman search nagios
