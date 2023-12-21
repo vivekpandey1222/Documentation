@@ -140,6 +140,9 @@ Nagios is a monitoring system used for keeping track of the health and performan
 
  
 **Why Nagios**:
+Nagios is an open-source monitoring tool that monitors networks, servers, and applications. Its popularity stems from its flexibility, real-time alerts, and capability to store historical data. Nagios provides the freedom to customize and aids in taking proactive measures.
+
+**Functionality**:
 * Detect all files of network or server issues.
 * It help you to find the root cause of the problem which allow you to get the permanent solution to the peoblem.
 * Reduce downtime.
