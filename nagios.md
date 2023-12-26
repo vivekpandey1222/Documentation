@@ -144,7 +144,7 @@ Nagios is an open-source monitoring tool that monitors networks, servers, and ap
 
 **Functionality**:
 * Detect all files of network or server issues.
-* It help you to find the root cause of the problem which allow you to get the permanent solution to the peoblem.
+* It help you to find the root cause of the problem which allow you to get the permanent solution to the problem.
 * Reduce downtime.
 * Active monitering of entire infrainstructure.
 * It allow you to moniter and troubleshoot server performance issue.
