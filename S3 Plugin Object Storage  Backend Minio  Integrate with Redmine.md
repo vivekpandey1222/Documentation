@@ -35,6 +35,31 @@ Podman is an open-source container management tool that allows users to manage c
 ```
 sudo apt update
 ```
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt update
+[sudo] password for vivek: 
+Hit:1 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 http://security.ubuntu.com/ubuntu focal-security InRelease               
+Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease                         
+Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease                 
+Hit:5 http://ppa.launchpad.net/ondrej/php/ubuntu focal InRelease    
+Hit:6 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Get:7 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04  InRelease [1,642 B]
+Fetched 1,642 B in 2s (979 B/s)      
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+vivek@vivek-HP-EliteBook-840-G2:~$ 
+```
+**sudo:** This part of the command is like saying "I want to do something important." It
+stands for "superuser do" and allows you to perform tasks that affect your computer's
+system, like installing software.
+
+**apt:** It is used to handle the installation, removal, and upgrading of software packages.
+
+**update:** To update the package list and new package installations.
+
 
 **Podman Install:-**
 ```
@@ -50,13 +75,13 @@ Reading state information... Done
 podman is already the newest version (100:3.4.2-5).
 0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
 ```
-**- sudo:** This part of the command is like saying "I want to do something important." It
+**sudo:** This part of the command is like saying "I want to do something important." It
 stands for "superuser do" and allows you to perform tasks that affect your computer's
 system, like installing software.
 
-**- apt:** It is used to handle the installation, removal, and upgrading of software packages.
+**apt:** It is used to handle the installation, removal, and upgrading of software packages.
 
-- **install:** This tells the magic tool that you want to put a new program on your
+**install:** This tells the magic tool that you want to put a new program on your
 computer.
 
 **Check podman :-**
@@ -115,10 +140,19 @@ podman run -dt -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER=admin -e MINIO_ROOT_
 `--console-address ":9001`**:** This option specifies the address on which the Minio console will be available. it's set to port 9001.
 
 
-**Chmod +x ,This command  used to change file permissions.**
+**Chmod +x ,This command  used tochange file permissions.**
 ```
 chmod +x pod-minio.sh
 ```
+**Output**: 
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ ls -l pod-minio.sh 
+-rwxrwxr-x 1 vivek vivek 200 Nov 22 15:55 pod-minio.sh
+```
+**Chmod +x**: This command  used to change file permissions.
+
+**pod-minio.sh**: This is the name of script.
+
 **Once the execute permission is granted, you can run the script** 
 ```
 ./pod-minio.sh
@@ -140,9 +174,14 @@ CONTAINER ID  IMAGE                                     COMMAND               CR
 After running the script, open your web browser and check the Minio server <http://localhost:9001>
 Login with your username and password.
 
-**Note:-** Nessaary you have to create bucket, access_key: and secret_key:
-           and also set region with this name us-east-1
-**example **
+**Note**: Necessary point will be creating
+
+* click on Bucket option and create bucket
+* click on access key option and create access_key: and secret_key:
+* click on setting option and set region with this name us-east-1
+  
+**example**-
+
 ![](https://lh7-us.googleusercontent.com/8fqKD6tEg4qpXjqUWOib2u7AoeQ7cB80yxMKJLUGBNGagQ6nVtdJHPdTwvt-zDXkd6oaBFvs05jJF-VWdUqIJkQUeMfWkZ4CcUbcepABrsLXj7OKJ3YEYsaeVxTjj1cUDc2t4Sll-MWlgigkx6k6AxU)
 
 
@@ -271,7 +310,7 @@ Redmine is a free and open source, web-based project management and issue tracki
 
 PostgreSQL is a powerful open-source relational database management system (RDBMS) that performs a variety of tasks related to storing, organizing, and retrieving structured data. 
 
-**Redmine Setup:-**
+**Redmine Setup**:
 ```
 mkdir -p redmine/postgres-uat
 ```
