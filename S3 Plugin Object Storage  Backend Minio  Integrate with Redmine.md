@@ -648,6 +648,10 @@ root@postgres-redmine:/usr/src/redmine# cd files/
 root@postgres-redmine:/usr/src/redmine/files# ls
 root@postgres-redmine:/usr/src/redmine/files# 
 ```
+**what is ls here?**
+
+Here the "ls" means the check file list on the inside continer and "cd" (change directory) go to directory name "file" then check the "ls" here file are blank and data has been upload the minio. 
+
 
 **Artefact #4**
 
