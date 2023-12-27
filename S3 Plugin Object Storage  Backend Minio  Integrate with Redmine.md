@@ -357,13 +357,13 @@ podman run -dt \
 docker.io/library/redmine
 
 ```
-**podman pod create**: This part of the command initiates the creation of a Pod.Pod is group of containers.
+* **podman pod create**: This part of the command initiates the creation of a Pod.Pod is group of containers.
 
-**--name postgres-redmine**: This specifies the name of the pod.
+* **--name postgres-redmine**: This specifies the name of the pod.
 
-**--publish 3000:3000**: This option is used to publish a port from the pod to the host.
+* **--publish 3000:3000**: This option is used to publish a port from the pod to the host.
 
-**--publish 5432:5432**: This is publishing port 5432 from the pod to port 5432 on the host. This is commonly used for database connections.
+* **--publish 5432:5432**: This is publishing port 5432 from the pod to port 5432 on the host. This is commonly used for database connections.
 
 **Chmod +x ,command is used to add execute permission to a file**
 ```
