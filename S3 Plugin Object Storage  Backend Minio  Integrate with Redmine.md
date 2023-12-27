@@ -394,10 +394,10 @@ And sign in by default username and password “admin”.
 Then create your own username and password.
 
 **Create this things**
--Projects
--Issue statuses
--Trackers
--Enumerations (create onl priorities)
+* Projects
+* Issue statuses
+* Trackers
+* Enumerations (create only priorities)
 
 
 —----------------------------------------------------------------------------------------------------------------------------
@@ -442,11 +442,14 @@ git clone https://github.com/redmica/redmica_s3.git plugins/redmica_s3
 cp plugins/redmica_s3/config/s3.yml.example config/s3.yml
 ```
 **install vim in the container**
+
 Note do not use sudo
 ```
 apt update && apt install vim -y
 ```
+**Why we should not use sudo here?**
 
+Inside a container, you usually don't need sudo because containers run in a safe space and already have limited permissions.
 ```
 vim config/s3.yml
 ```
@@ -557,6 +560,14 @@ Storing signatures
 3554759189d2c256c472922754641ef3d90a9ebe7c07ab3c3960c4cccdf77514
 vivek@vivek-HP-EliteBook-840-G2:~$
 ```
+**podman commit**:This is the command to create a new image from a container. 
+
+**redmine-app-new**:This is the name of the source container.
+
+**localhost**: This  is the registry or host where the image will be stored.
+
+**/redmine-app-new-pandey-v1**:This is the name you're giving to the new image and v1 is the tag assigned to this version of the image.
+
 **Search container image**
 ```
 podman images
@@ -567,6 +578,8 @@ vivek@vivek-HP-EliteBook-840-G2:~$ podman images
 REPOSITORY                             TAG          IMAGE ID      CREATED       SIZE
 localhost/redmine-app-newvivek-v1      latest       b90a40dd470c  2 days ago    784 MB
 ```
+**podman images**: This is the main command that instructs Podman to show a list of container images.
+
 —----------------------------------------------------------------------------------------------------------------------------
 
 ## Testing and test case:
