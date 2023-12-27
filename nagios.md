@@ -87,7 +87,7 @@ echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontaine
 It is not mandatory to use curl in podman but curl is a command-line tool that  you exchange data between your device and a server through a command-line interface (CLI).
 
 ```
-	sudo snap install curl
+sudo snap install curl
 ```
 **snap**: Snap is a package management system and application packaging format developed by Canonical for Linux distributions. It allows applications to be bundled with their dependencies and run in a containerized environment called a snap.
 
@@ -99,6 +99,32 @@ It is not mandatory to use curl in podman but curl is a command-line tool that  
 ```
 sudo apt update
 ```
+**Output**:
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt update
+[sudo] password for vivek: 
+Hit:1 https://dl.google.com/linux/chrome/deb stable InRelease
+Hit:2 http://ppa.launchpad.net/ondrej/php/ubuntu focal InRelease               
+Hit:3 http://security.ubuntu.com/ubuntu focal-security InRelease               
+Hit:4 http://archive.ubuntu.com/ubuntu focal InRelease                         
+Get:5 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]        
+Get:6 https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04  InRelease [1,642 B]
+Hit:7 http://archive.ubuntu.com/ubuntu focal-backports InRelease      
+Fetched 115 kB in 2s (47.6 kB/s)
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+vivek@vivek-HP-EliteBook-840-G2:~$ 
+```
+**sudo:** This part of the command is like saying "I want to do something important." It
+stands for "superuser do" and allows you to perform tasks that affect your computer's
+system, like installing software.
+
+**apt:** It is used to handle the installation, removal, and upgrading of software packages. 
+
+**update:** It means, check the internet to see if there are any new or updated programs available.
+
 **Podman Install:-**
 ```
 sudo apt install podman
@@ -119,7 +145,7 @@ system, like installing software.
 
 **- apt:** It is used to handle the installation, removal, and upgrading of software packages.
 
- **install:** This tells the magic tool that you want to put a new program on your
+ **- install:** This tells the magic tool that you want to put a new program on your
 computer.
 
 
