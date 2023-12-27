@@ -314,17 +314,20 @@ PostgreSQL is a powerful open-source relational database management system (RDBM
 ```
 mkdir -p redmine/postgres-uat
 ```
-**vim**: vim is a text editor.
+**mkdir**: This command is used to make a directory.
+
 **-p**: this option allows you to create parent directories.
-**redmine/postgres-uat**: This is the path of the directory structure you want to create.
+
+**redmine/postgres-uat**: This is the name of the directory structure you want to create.
 
 ```
 vim redmine.sh
 ```
 **vim**: vim is a text editor.
+
 **redmine.sh**: this is name of script.
 
-**Note:-** Before run your script match your path which is loatec after -v
+**Note:-** Before run your script match your path which is locate after -v
 
 **Add this content in redmine.sh file**
 ```
@@ -355,14 +358,27 @@ docker.io/library/redmine
 
 ```
 **podman pod create**: This part of the command initiates the creation of a Pod.Pod is group of containers.
+
 **--name postgres-redmine**: This specifies the name of the pod.
+
 **--publish 3000:3000**: This option is used to publish a port from the pod to the host.
+
 **--publish 5432:5432**: This is publishing port 5432 from the pod to port 5432 on the host. This is commonly used for database connections.
 
 **Chmod +x ,command is used to add execute permission to a file**
 ```
 chmod +x redmine.sh
 ```
+**Outpur**:
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ ls -l redmine.sh 
+-rwxr-xr-x 1 vivek vivek 800 Nov 19 16:59 redmine.sh
+vivek@vivek-HP-EliteBook-840-G2:~$ 
+```
+**Chmod +x**: This command  used to change file permissions.
+
+**redmine.sh**: This is the name of script.
+
 **Once the execute permission is granted, you can run the script** 
 ```
 ./redmine.sh
