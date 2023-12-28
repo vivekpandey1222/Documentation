@@ -4,6 +4,8 @@
 
 [Linux Distribution](#linux-distribution)
 
+[Podman](#Overview-of-Task)
+
 [Podman](#podman)
 
 [Minio](#minio)
@@ -26,6 +28,10 @@ Distributor Id - Ubuntu
 
 Version - 20.04
 
+## Overview of Task:
+
+The task is to link Redmine, a project management tool, with Minio, an object storage system, using an S3 plugin. This connection allows Redmine to store its files in Minio. The process involves setting up Minio, choosing a compatible S3 plugin for Redmine, and configuring Redmine to use Minio for storage. 
+Then using podman generate a yaml file of kubernate deploy and run containers in a Pod using Podman, with the container configurations defined in a Kubernetes-style YAML file. 
 
 ## Podman:
 
