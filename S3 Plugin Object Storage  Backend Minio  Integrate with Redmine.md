@@ -179,7 +179,7 @@ podman run -dt -p 9000:9000 -p 9001:9001 -e MINIO_ROOT_USER=admin -e MINIO_ROOT_
 `--console-address ":9001`**:** This option specifies the address on which the Minio console will be available. it's set to port 9001.
 
 
-**Chmod +x ,This command  used tochange file permissions.**
+**Chmod +x ,This command  used to change file permissions.**
 ```
 chmod +x pod-minio.sh
 ```
@@ -202,14 +202,14 @@ vivek@vivek-HP-EliteBook-840-G2:~$ ls -l pod-minio.sh
 ```
 podman ps
 ```
-**podman ps**: You'll receive a list showing which containers are currently running, along with basic information about them.
-
 **Output**
 ```
 vivek@vivek-HP-EliteBook-840-G2:~$ podman ps
 CONTAINER ID  IMAGE                                     COMMAND               CREATED       STATUS                PORTS                                           NAMES
 7bf686d7d295  docker.io/minio/minio:latest              server /data --co...  3 weeks ago   Up About an hour ago  0.0.0.0:9000-9001->9000-9001/tcp                minio
 ```
+**podman ps**: You'll receive a list showing which containers are currently running, along with basic information about them.
+
 After running the script, open your web browser and check the Minio server <http://localhost:9001>
 Login with your username and password.
 
@@ -269,20 +269,22 @@ which ansible
 ```
 /usr/bin/ansible
 ```
-**Using playbook create object Minio bucket:-**
+**Using playbook create object Minio bucket:**
 
-**Create file for ansbie testing:-**
+* **Create file for ansbie testing:**
 ```
 touch a.txt
 ```
 **touch**: This command is used to create a empty file.
+
 **a.txt**: This the file name.
 
-**Then create yml file :-**
+* **Then create yml file :-**
 ```
 vim minio-testing.yml
 ```
 **vim**: vim is a text editor.
+
 **minio-testing.yml**: this is name of yaml file.
 
 **Add this content in minio-testting.yml file**
@@ -307,7 +309,7 @@ vim minio-testing.yml
 
 ```
 
-**Then run command for testing :-**
+**Then run command for testing :**
 ```
 ansible-playbook minio-testing.yml -v
 ```
@@ -345,7 +347,7 @@ pip install boto3
 
 Redmine is a free and open source, web-based project management and issue tracking tool. It allows users to manage multiple projects and subprojects. 
 
-**Postgres:-**
+**Postgres:**
 
 PostgreSQL is a powerful open-source relational database management system (RDBMS) that performs a variety of tasks related to storing, organizing, and retrieving structured data. 
 
@@ -366,7 +368,7 @@ vim redmine.sh
 
 **redmine.sh**: this is name of script.
 
-**Note:-** Before run your script match your path which is locate after -v
+**Note:** Before run your script match your path which is locate after -v
 
 **Add this content in redmine.sh file**
 ```
