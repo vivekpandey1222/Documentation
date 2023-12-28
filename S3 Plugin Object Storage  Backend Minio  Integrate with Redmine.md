@@ -4,6 +4,8 @@
 
 [Linux Distribution](#linux-distribution)
 
+[Prerequisite tool](#Prerequisite-tool)
+
 [Overview of Task](#Overview-of-Task)
 
 [Podman](#podman)
@@ -27,6 +29,11 @@
 Distributor Id - Ubuntu
 
 Version - 20.04
+
+## Prerequisite tool:
+
+* Ansible ( 2.9.6)
+* Podman (3.4.2)
 
 ## Overview of Task:
 
