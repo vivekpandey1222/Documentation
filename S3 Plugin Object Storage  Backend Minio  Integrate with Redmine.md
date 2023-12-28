@@ -406,9 +406,9 @@ Then create your own username and password.
 
 Amazon S3, (Simple Storage Service) is a widely used object storage service provided by Amazon Web Services. It enables users to store and retrieve any amount of data at any time over the internet.
 
-**S3 Plugins Install on redmine**
+* **S3 Plugins Install on redmine**-
 
-Go Root directory in redmine container
+Go to Root directory in redmine container
 ```
 podman exec -it redmine-app-new /bin/bash
 ```
@@ -417,31 +417,31 @@ podman exec -it redmine-app-new /bin/bash
 vivek@vivek-HP-EliteBook-840-G2:-$ podman exec -it redmine-app-new /bin/bash
 root@postgres-redmine:/usr/src/redmine#
 ```
-**-podman exec :** This command for executing  within a running container.
+**podman exec :** This command for executing  within a running container.
 
-**--it:** It is commonly used for running an interactive shell inside the container.
+**-it:** It is commonly used for running an interactive shell inside the container.
 
-**-container name:** This is a place for the name or ID of the container.
+**container name:** This is a place for the name or ID of the container.
 
-**-/bin/bash:** This command will be executed inside the specified container.
+**/bin/bash:** This command will be executed inside the specified container.
 
-**Now run this command on redmine container**
+* **Now run this command on redmine container**
 ```
 git clone https://github.com/redmica/redmica_s3.git plugins/redmica_s3
 ```
-**-git clone:** This is the Git command used to clone a repository. Cloning is the process of creating a local copy of a Git repository on your machine.
+**git clone:** This is the Git command used to clone a repository. Cloning is the process of creating a local copy of a Git repository on your machine.
 
-**-https\://github.com/redmica/redmica\_s3.git :** This is the URL of the Git repository.
+**https\://github.com/redmica/redmica\_s3.git :** This is the URL of the Git repository.
 
-**-plugins/redmica\_s3:** This is the local directory where the repository will be cloned.
+**plugins/redmica\_s3:** This is the local directory where the repository will be cloned.
 
 
 
-**Then run this command and edit config/s3.yml with your favorite editor** 
+* Then run this command and edit config/s3.yml with your favorite editor. 
 ```
 cp plugins/redmica_s3/config/s3.yml.example config/s3.yml
 ```
-**install vim in the container**
+* **install vim in the container**
 
 Note do not use sudo
 ```
@@ -482,14 +482,17 @@ development:
 #   bucket:
 
 ```
-Now download dependency
+* **Now download dependency**
+* bundle install
+* rake redmine:plugins
+
 ```
 bundle install
 ```
 example
 root\@postgres-redmine:/usr/src/redmine# bundle install
 
-**-bundle:** Bundle is a tool used in Ruby programming to keep track of and manage the different pieces of code, called "gems," that a project depends on. 
+**bundle:** Bundle is a tool used in Ruby programming to keep track of and manage the different pieces of code, called "gems," that a project depends on. 
 
 Then run this command 
 ```
@@ -502,11 +505,11 @@ root@postgres-redmine:/usr/src/redmine/config# rake redmine:plugins (in /usr/src
 root@postgres-redmine:/usr/src/redmine/config#
 root@postgres-redmine:/usr/src/redmine/config#
 ```
-**-Rake redmine:plugins:** is a Rake task designed for managing plugins in a Redmine installation.
+**Rake redmine:plugins:** is a Rake task designed for managing plugins in a Redmine installation.
 
 **Exit from the container before restarting pod** 
 
-**Restart your pod and server:-**
+**Restart your pod and server:**
 ```
 podman pod restart postgres-redmine
 ```
@@ -525,14 +528,14 @@ POD ID        NAME              STATUS      CREATED       INFRA ID      # OF CON
 9d33b0c6d766  postgres-redmine  Running     19 hours ago  0573a099e29e  3
 vivek@vivek-HP-EliteBook-840-G2:~$ 
 ```
-Now you can see the plugins in redmine : 
+* **Now you can see the plugins in redmine**:
 
 Click on the administration option and click on the plugins options .
 
 ![](https://lh7-us.googleusercontent.com/4T-tqjRr8-2iEd0MMKIzVHzuR3pyE82U3s6zUYWk--JiV1ZmcGVm1EpaS2IvKhg1ITMJsiywLtnoWFFryxRDXluXW2n3n5L5HjrbyykNhhFrZwEtJeOr4fSv20FqZotyhqgS9tRTRUTzvgyIONwRjys)
 
 
-**Create image of container**
+* **Create image of container**
 
 commit command is used to create image of container 
 ```
