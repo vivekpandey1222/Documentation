@@ -114,6 +114,12 @@ which podman
 
 Minio is an open-source object storage server that is compatible with S3. Minio is the best server which is suited for storing unstructured data, like photos, videos,  backups, and more. 
 
+ **Defference between object storage block storage and file storege.**
+  
+* **Object Storage**: Object storage stores the file as a whole and does not devide them. Like- Drive
+* **Block Storage**: Block storage is a type of data storage that breaks down data into blocks and stores each block as a separate piece. Each block can be independently managed and accessed.
+* **File Storage**: A hiorarchical storage methedology used to orgnize and store data on a computer. Data is saved in filw inside listed witin other folder. 
+
 **Setup Minio:-**
 **create folder**
 ```
