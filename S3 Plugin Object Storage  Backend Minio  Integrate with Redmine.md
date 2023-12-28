@@ -419,7 +419,7 @@ Then create your own username and password.
 
 Amazon S3, (Simple Storage Service) is a widely used object storage service provided by Amazon Web Services. It enables users to store and retrieve any amount of data at any time over the internet.
 
-* **S3 Plugins Install on redmine**-
+* **S3 Plugins Install on redmine**.
 
 Go to Root directory in redmine container
 ```
@@ -438,7 +438,7 @@ root@postgres-redmine:/usr/src/redmine#
 
 **/bin/bash:** This command will be executed inside the specified container.
 
-* **Now run this command on redmine container**
+* **Now run this command on redmine container**.
 ```
 git clone https://github.com/redmica/redmica_s3.git plugins/redmica_s3
 ```
@@ -450,13 +450,13 @@ git clone https://github.com/redmica/redmica_s3.git plugins/redmica_s3
 
 
 
-* Then run this command and edit config/s3.yml with your favorite editor. 
+* **Then run this command and edit config/s3.yml with your favorite editor**. 
 ```
 cp plugins/redmica_s3/config/s3.yml.example config/s3.yml
 ```
 * **install vim in the container**
 
-Note do not use sudo
+**Note**: don't use sudo
 ```
 apt update && apt install vim -y
 ```
@@ -466,7 +466,7 @@ Inside a container, you usually don't need sudo because containers run in a safe
 ```
 vim config/s3.yml
 ```
-**Add this content in config/s3.yml**
+* **Add this content in config/s3.yml**
 ```
 production:
   access_key_id: lpKM3E9qzJ9PIB7Bqey3
@@ -518,11 +518,11 @@ root@postgres-redmine:/usr/src/redmine/config# rake redmine:plugins (in /usr/src
 root@postgres-redmine:/usr/src/redmine/config#
 root@postgres-redmine:/usr/src/redmine/config#
 ```
-**Rake redmine:plugins:** is a Rake task designed for managing plugins in a Redmine installation.
+**Rake redmine:plugins:** A Rake task designed for managing plugins in a Redmine installation.
 
-**Exit from the container before restarting pod** 
+* **Exit from the container before restarting pod** 
 
-**Restart your pod and server:**
+* **Restart your pod and server:**
 ```
 podman pod restart postgres-redmine
 ```
@@ -584,7 +584,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 
 **/redmine-app-new-pandey-v1**:This is the name you're giving to the new image and v1 is the tag assigned to this version of the image.
 
-**Search container image**
+* **Search container image**
 ```
 podman images
 ```
