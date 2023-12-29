@@ -81,10 +81,12 @@ echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontaine
 **/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list**: This is the path to the file where the repository entry will be saved. 
 
  **Check curl if installed then no need to install again**-
-**Install curl**
+ 
 **What is the need to use curl**?
 
 It is not mandatory to use curl in podman but curl is a command-line tool that  you exchange data between your device and a server through a command-line interface (CLI).
+
+**Install curl**
 
 ```
 sudo snap install curl
