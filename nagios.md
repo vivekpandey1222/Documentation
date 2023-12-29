@@ -195,7 +195,8 @@ podman search nagios
 **search:** It is a subcommand in a podman tool, it indicates that you want to search for container image images in container registry.
 
 **nagios:** It is search term or query, here I am looking for container images related to the Nagios monitoring tool.
-This comand is used to pull the nagios container image from docker hub to your local system using podman.
+
+**This comand is used to pull the nagios container image from docker hub to your local system using podman**
 ```
 podman pull docker.io/jasonrivers/nagios
 ```
