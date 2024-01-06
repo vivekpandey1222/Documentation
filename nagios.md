@@ -23,7 +23,7 @@ Version - 20.04
 
 **Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)**
 
-**Base**: "Base" refers to the basic state of your computer. When we say "apply some software or application to base," we are talking about the initial state or existing settings as they appear on your local machine. I mentioned about nagios"Which tells you that you can use podman or apply it to your own computer.
+**Base**: "Base" means installing and running Nagios directly on your host system without using containerization.
 
 # Podman
 
