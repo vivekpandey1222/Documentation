@@ -119,6 +119,10 @@ stands for "superuser do".
  **install**: This tells the magic tool that you want to install a new program on your
 computer.
 
+**software-properties-common**:It provides common tools for managing software repositories.
+
+**uidmap**: It likely provides functionality related to user ID mapping.
+
 **Adding repository**
 ```
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
@@ -130,6 +134,8 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 **sudo:** This part of the command is like saying "I want to do something important." It
 stands for "superuser do".
+
+**sh -c**:This command creates a new shell. The -c option specifies that the command written after it should be executed.
 
 **echo**: This command used to print the text.
 
@@ -172,6 +178,17 @@ Get:6 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/sta
 Fetched 16.6 kB in 18s (937 B/s)    
 Reading package lists... Done
 ```
+**sudo**: This part of the command is like saying "I want to do something important." It
+stands for "superuser do".
+
+**apt-key**: This command is used to manage the keys by apt to authenticate packages.
+
+**adv**: This is an option used with apt-key for advanced options.
+
+**--keyserver hkp**://keyserver.ubuntu.com:80: This specifies the key server to use for retrieving the GPG key.
+
+**--recv-keys**: This option tells apt-key to fetch the GPG key. (replace with id like 4D64390375060A)
+
 **Update system:-**
 ```
 sudo apt update
@@ -195,8 +212,7 @@ Reading state information... Done
 vivek@vivek-HP-EliteBook-840-G2:~$ 
 ```
 **sudo:** This part of the command is like saying "I want to do something important." It
-stands for "superuser do" and allows you to perform tasks that affect your computer's
-system, like installing software.
+stands for "superuser do".
 
 **apt:** It is used to handle the installation, removal, and upgrading of software packages. 
 
