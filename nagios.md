@@ -13,7 +13,7 @@
 
  # Linux Distribution
  
- **Distribution**: A Linux Distribution refers to a kind of operating system known as Linux. It is a packaged combination that includes the Linux kernel  along with various essential programs and tools. 
+ **Distribution**: A Linux Distribution refers to a kind of operating system known as Linux.  
 
 Distributor Id - Ubuntu
 
@@ -23,7 +23,7 @@ Version - 20.04
 
 **Podman version 3.4.2 (This is optional otherwise,you can apply on base as well.)**
 
-**Base**: "Base" means installing and running Nagios directly on your host system without using containerization.
+**Base**: "Base" means installing and running Nagios directly on your system without using containerization.
 
 # Podman
 
@@ -33,7 +33,7 @@ Podman is an open-source container management tool that allows users to manage c
 
 **Daemonless**: Daemonless means doing things without relying on such invisible assistants. It suggests a setup where tasks are managed without continuous background processes.
 
-**Before Install Podman check OS version (If version is 20.04 then add repository)**
+**Before Install Podman check OS version (If version is 20.04 or Earlier then add repository)**
 
 Check OS Version -
 ```
@@ -68,9 +68,56 @@ Podman is not in the default Ubuntu repository, we need to add the Kubic reposit
 
 **Repository**: A"repository" is a place where things are stored and organised , like files, code, or other project-related items.
 
+**Install the Podman dependencies**:
+```
+sudo apt install software-properties-common uidmap
+```
+**Output**:
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ sudo apt install software-properties-common uidmap
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  python3-software-properties software-properties-gtk
+The following NEW packages will be installed:
+  uidmap
+The following packages will be upgraded:
+  python3-software-properties software-properties-common
+  software-properties-gtk
+3 upgraded, 1 newly installed, 0 to remove and 270 not upgraded.
+Need to get 128 kB of archives.
+After this operation, 172 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu focal-updates/main amd64 software-properties-common all 0.99.9.12 [10.4 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu focal-updates/main amd64 software-properties-gtk all 0.99.9.12 [69.1 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu focal-updates/main amd64 python3-software-properties all 0.99.9.12 [21.7 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu focal-updates/universe amd64 uidmap amd64 1:4.8.1-1ubuntu5.20.04.4 [26.4 kB]
+Fetched 128 kB in 12s (10.5 kB/s)                                              
+(Reading database ... 143669 files and directories currently installed.)
+Preparing to unpack .../software-properties-common_0.99.9.12_all.deb ...
+Unpacking software-properties-common (0.99.9.12) over (0.99.9.11) ...
+Preparing to unpack .../software-properties-gtk_0.99.9.12_all.deb ...
+Unpacking software-properties-gtk (0.99.9.12) over (0.99.9.11) ...
+Preparing to unpack .../python3-software-properties_0.99.9.12_all.deb ...
+Unpacking python3-software-properties (0.99.9.12) over (0.99.9.11) ...
+Selecting previously unselected package uidmap.
+Preparing to unpack .../uidmap_1%3a4.8.1-1ubuntu5.20.04.4_amd64.deb ...
+Unpacking uidmap (1:4.8.1-1ubuntu5.20.04.4) ...
+Setting up uidmap (1:4.8.1-1ubuntu5.20.04.4) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for gnome-menus (3.36.0-1ubuntu1) ...
+Processing triggers for libglib2.0-0:amd64 (2.64.6-1~ubuntu20.04.4) ...
+Processing triggers for man-db (2.9.1-1) ...
+```
 **Adding repository Ubuntu-**
 ```
-echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu\_${VERSION\_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+```
+**Output**:
+```
+vivek@vivek-HP-EliteBook-840-G2:~$ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+vivek@vivek-HP-EliteBook-840-G2:~$
 ```
 **echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /"**: echo is a command that simply prints the specified text to the standard output.
 
@@ -80,23 +127,36 @@ echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontaine
 
 **/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list**: This is the path to the file where the repository entry will be saved. 
 
- **Check curl if installed then no need to install again**-
- 
-**What is the need to use curl**?
-
-It is not mandatory to use curl in podman but curl is a command-line tool that  you exchange data between your device and a server through a command-line interface (CLI).
-
-**Install curl**
-
+**And Run the sudo apt-get update**
 ```
-sudo snap install curl
+sudo apt update
 ```
-**snap**: Snap is a package management system and application packaging format developed by Canonical for Linux distributions. It allows applications to be bundled with their dependencies and run in a containerized environment called a snap.
-
-**install**: This is the subcommand used with snap to indicate that you want to install a specific application or package.
-
-**curl**: This is the name of the package (in this case, the curl tool) that you want to install. 
-
+**If you get an error like this following on updating time**:
+```
+W: GPG error: http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04 InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY 4D64390375060A
+```
+This error message indicates that the GPG key is missing.Then need to import the missing GPG key for the repository.
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4D64390375060A(replace with your key)
+```
+**Output**:
+```
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4D64390375060AA4
+Executing: /tmp/apt-key-gpghome.K1X2ZwrFrU/gpg.1.sh --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 4D64390375060AA4
+gpg: key 4D64390375060AA4: public key "devel:kubic OBS Project <devel:kubic@build.opensuse.org>" imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+madhur@madhur-Standard-PC-Q35-ICH9-2009:~$ sudo apt-get update
+Hit:1 http://us.archive.ubuntu.com/ubuntu focal InRelease                      
+Hit:2 http://us.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://us.archive.ubuntu.com/ubuntu focal-backports InRelease
+Err:4 http://security.ubuntu.com/ubuntu focal-security InRelease            
+  Temporary failure resolving 'security.ubuntu.com'
+Get:5 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04  InRelease [1,642 B]
+Get:6 http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04  Packages [15.0 kB]
+Fetched 16.6 kB in 18s (937 B/s)    
+Reading package lists... Done
+```
 **Update system:-**
 ```
 sudo apt update
