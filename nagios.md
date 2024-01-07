@@ -137,9 +137,10 @@ stands for "superuser do".
 
 **http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/**: This is the URL of the repository, pointing to the OpenSUSE Kubic libcontainers stable packages for Ubuntu 20.04.
 
+**/etc/apt/sources.list.d/**: This is directory where The repository being added.
+
 **devel:kubic:libcontainers:stable.list**: This is the name of file.
 
-**/etc/apt/sources.list.d/**: This is directory where The repository being added.
 
 **And Run the sudo apt-get update**
 ```
