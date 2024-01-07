@@ -110,7 +110,16 @@ Processing triggers for gnome-menus (3.36.0-1ubuntu1) ...
 Processing triggers for libglib2.0-0:amd64 (2.64.6-1~ubuntu20.04.4) ...
 Processing triggers for man-db (2.9.1-1) ...
 ```
-**Adding repository Ubuntu-**
+
+**sudo**: This part of the command is like saying "I want to do something important." It
+stands for "superuser do".
+
+**apt**: It is used to handle the installation, removal, and upgrading of software packages.
+
+ **install**: This tells the magic tool that you want to install a new program on your
+computer.
+
+**Adding repository**
 ```
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 ```
@@ -119,13 +128,18 @@ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/li
 vivek@vivek-HP-EliteBook-840-G2:~$ sudo sh -c "echo 'deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
 vivek@vivek-HP-EliteBook-840-G2:~$
 ```
-**echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /"**: echo is a command that simply prints the specified text to the standard output.
+**sudo:** This part of the command is like saying "I want to do something important." It
+stands for "superuser do".
 
-**sudo**: This command allows a permitted user to execute a command as the superuser.
+**echo**: This command used to print the text.
 
-**tee**: This is a command that reads from standard input and writes to standard output and files.
+**deb**: Indicates that this is a binary package repository.
 
-**/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list**: This is the path to the file where the repository entry will be saved. 
+**http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/**: This is the URL of the repository, pointing to the OpenSUSE Kubic libcontainers stable packages for Ubuntu 20.04.
+
+**devel:kubic:libcontainers:stable.list**: This is the name of file.
+
+**/etc/apt/sources.list.d/**: This is directory where The repository being added.
 
 **And Run the sudo apt-get update**
 ```
@@ -201,13 +215,12 @@ Reading state information... Done
 podman is already the newest version (100:3.4.2-5).
 0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
 ```
-**- sudo:** This part of the command is like saying "I want to do something important." It
-stands for "superuser do" and allows you to perform tasks that affect your computer's
-system, like installing software.
+**sudo**: This part of the command is like saying "I want to do something important." It
+stands for "superuser do".
 
-**- apt:** It is used to handle the installation, removal, and upgrading of software packages.
+**apt**: It is used to handle the installation, removal, and upgrading of software packages.
 
- **- install:** This tells the magic tool that you want to put a new program on your
+ **install**: This tells the magic tool that you want to install a new program on your
 computer.
 
 
