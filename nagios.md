@@ -27,7 +27,7 @@ Version - 20.04
 
 # Podman
 
-Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
+Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
 
 **Daemon**: A daemon is a background process or service that runs without direct interaction with the user.
 
