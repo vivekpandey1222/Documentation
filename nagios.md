@@ -29,9 +29,9 @@ Version - 20.04
 
 Podman is an open-source container management tool that allows users to manage containers without the need for a container daemon. It is designed to be a lightweight, daemonless alternative to Docker. Podman provides a command-line interface (CLI) for managing containers, pods, and container images.
 
-**Daemon**: A daemon is like a helpful, invisible assistant that works in the background on your computer.
+**Daemon**: A daemon is a background process or service that runs without direct interaction with the user.
 
-**Daemonless**: Daemonless means doing things without relying on such invisible assistants. It suggests a setup where tasks are managed without continuous background processes.
+**Daemonless**: Daemonless refers processes that don't run as background 
 
 **Before Install Podman check OS version (If version is 20.04 or Earlier then add repository)**
 
@@ -64,7 +64,7 @@ UBUNTU_CODENAME=focal
 **/etc/os-release**- Os-release is a file located in the /etc directory on Linux systems.
 
 **Add Repository-**
-Podman is not in the default Ubuntu repository, we need to add the Kubic repository to be able to download the podman package. 
+Podman is not in the default Ubuntu repository, we need to add the repository to be able to download the podman package. 
 
 **Repository**: A"repository" is a place where things are stored and organised , like files, code, or other project-related items.
 
