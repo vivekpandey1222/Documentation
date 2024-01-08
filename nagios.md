@@ -338,7 +338,8 @@ Now access the web page <http://localhost:8080>
 
 After login you will get Nagios dashboard like this:
 
-![](https://lh7-us.googleusercontent.com/tdeH1HzXnOLcEErgYQTKrMVJvl7b85WHNt4yczO6fRd3vMYHoqqiWqrD-hQ76tuXhwSdtku7F8NsAtUnBJSMgawZAyIUFEOuLaZq-e0tXAD_4leTH-hWn5a4h8pfkwe4OHU-mNSxJls2Zt5pjM1GsVQ)
+![Screenshot from 2024-01-08 23-10-51](https://github.com/vivekpandey1222/Documentation/assets/151363790/01759b6d-3dcd-489f-8762-48087c5cc127)
+
 
 
 **Checking services**<a id="checking-services"></a>
