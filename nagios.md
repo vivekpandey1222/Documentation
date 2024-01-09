@@ -269,9 +269,8 @@ Nagios is an open-source monitoring tool that monitors networks, servers, and ap
 
 **Feature**:
 * Oldest and latest
-* Good log and autometic send alert if condition change like- to change condition from normal to critical, warning,pending.
+* Nagios autometic send alert if condition change like- to change condition from normal to critical, warning,pending.
 * You can moniter entire the aplication process with a single features.
-* Moniter network service like- Http,ssh,smtp.
 * It use by default port 5666,5667,5668 to moniter its client.
 
 
@@ -284,7 +283,7 @@ podman search nagios
 
 **search:** It is a subcommand in a podman tool, it indicates that you want to search for container image images in container registry.
 
-**nagios:** It is search term or query, here I am looking for container images related to the Nagios monitoring tool.
+**nagios:** I am looking for container images related to the Nagios monitoring tool.
 
 **This comand is used to pull the nagios container image from docker hub to your local system using podman**
 ```
@@ -292,9 +291,7 @@ podman pull docker.io/jasonrivers/nagios
 ```
 **podman pull:** It tells your computer to download something.
 
-**docker.io:** It's the location on the internet where we want to get something.
-
-**jasonrivers/nagios:** This specifies exactly what we want to download, in this case, it's a tool or application called "nagios."
+**docker.io/jasonrivers/nagios:** This is the name of image.
 
 This command will start the Nagios container with the specified options. You can access the Nagios web interface by opening a web browser and navigating to http:localhost:8080 and open By default username and password “nagiosadmin”
 ```
