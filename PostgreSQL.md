@@ -1,4 +1,4 @@
-                  PostgreSQL
+# PostgreSQL
 
 ## Table of Contents
 [Linux Distribution](#linux-distribution)
@@ -22,6 +22,8 @@
 [User defined function](#user-defined-function)
 
 [String](#string)
+
+[Reference link](#reference-link)
 
 ## Linux Distribution:
 
@@ -80,8 +82,6 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 
 ## PostgreSQL:
 **Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It is an advanced Enterprise class. It supports SQL (relational) and json (non-relational).
-
-**History:-** PostgreSQL was invented at the Berkeley Computer Science Department, University of California.It started as a project in 1986 with the goal of creating a database system with the minimal features needed to support multiple data types.In the beginning, PostgreSQL ran on UNIX platforms, but now it can run on various platforms, including Windows and MacOS.
 
 **Features:-** Table inheritance user-define type , foreign key view, rule, subquery, asynchronous, replication(fast of db).
 
@@ -889,3 +889,6 @@ keenable=# SELECT 'Hello ' || 'World' AS concatenated_string;
 ---------------------
  Hello World
 ```
+# Reference link
+
+
