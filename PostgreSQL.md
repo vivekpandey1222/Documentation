@@ -890,5 +890,5 @@ keenable=# SELECT 'Hello ' || 'World' AS concatenated_string;
  Hello World
 ```
 # Reference link
-
+https://youtube.com/playlist?list=PLzAy3QBHoWZdxPXkD7UVymWm_Do3IdzwQ&si=ANT8eCKmB157ng9U
 
