@@ -1,4 +1,4 @@
-# PostgreSQL
+# Installation of PostgreSQL
 
 ## Table of Contents
 [Linux Distribution](#linux-distribution)
@@ -628,25 +628,101 @@ keenable=# select * from intern where age between 21 and  23;
 ```
 Create view keen(view name) as select fname age from intern;
 ```
-**Inner Join:** A JOIN in PostgreSQL is used to combine rows from two or more tables based on a related column between them.
+**Inner Join:** A JOIN in PostgreSQL is used to combine two or more tables based on a related column between them.
 ```
-Select intern.fname, intern.name, contractor.name from intern inner join contractor.on intern.id=contactor.id;
+select intern.fname, contractor.age from intern inner join contractor on intern.id=contractor.id;
 ```
-**Left or left outer join:** A LEFT JOIN returns all rows from the left table and the matched rows from the right table. If there is no match, NULL values are returned for columns from the right table.
+**Output:**
 ```
-Select intern.fname, intern.age, contractor name from intern left  join contractor on intern.id=contractor.id;
+company=# select intern.fname, contractor.age from intern inner join contractor on intern.id=contractor.id;
+  fname  | age 
+---------+-----
+ rahul   |  26
+ mohit   |  40
+ krishna |  26
+ vivek   |  30
+ vivek   |  22
+(5 rows)
+company=# 
 ```
-**Right or right outer join:** A RIGHT JOIN is similar to a LEFT JOIN, but it returns all rows from the right table and the matched rows from the left table.
+**Left join:** A LEFT JOIN returns all rows from the left table and the matched rows from the right table. If there is no match, NULL values are returned for columns from the right table.
 ```
-Select  intern.fname, intern.age, contractor name from intern right  join contractor on intern.id=contractor.id;
+select intern.fname, contractor.fname from intern left join contractor on intern.id=contractor.id;
+```
+**Output**:
+```
+company=# select intern.fname, contractor.fname from intern left join contractor on intern.id=contractor.id;
+  fname  |  fname  
+---------+---------
+ rahul   | mahesh
+ mohit   | brijesh
+ krishna | mohan
+ vivek   | mohit
+ vivek   | mahesh
+ brijesh | 
+(6 rows)
+company=#
+```
+**Right join:** A RIGHT JOIN is similar to a LEFT JOIN, but it returns all rows from the right table and the matched rows from the left table.
+```
+select intern.fname, contractor.fname from intern right join contractor on intern.id=contractor.id;
+```
+**Output**:
+```
+company=# select intern.fname, contractor.fname from intern right join contractor on intern.id=contractor.id;
+  fname  |  fname  
+---------+---------
+ rahul   | mahesh
+ mohit   | brijesh
+ krishna | mohan
+ vivek   | mohit
+ vivek   | mahesh
+(5 rows)
+company=#
 ```
 **Full outer join:** A FULL OUTER JOIN returns all rows when there is a match in either the left or the right table. If there is no match, NULL values are returned for columns from the table without a match.
 ```
-Select intern.fname, intern.age, contractor.name from contractor full outer join intern on intern.id=contractor.id;
+select intern.fname, contractor.fname from intern full outer join contractor on intern.id=contractor.id;
+```
+**Output**:
+```
+company=# select intern.fname, contractor.fname from intern full outer join contractor on intern.id=contractor.id;
+  fname  |  fname  
+---------+---------
+ rahul   | mahesh
+ mohit   | brijesh
+ krishna | mohan
+ vivek   | mohit
+ vivek   | mahesh
+ brijesh | 
+(6 rows)
+company=# 
+
 ```
 **Cross join:** don't provide conditions if two tables are available  and each of them table 4 row then 4x4=16 rows will be created.
 ```
-Select fname, name from intern cross join contractor;
+select intern.fname, contractor.age from intern cross join contractor;
+```
+**Output**:
+```
+company=# select intern.fname, contractor.age from intern cross join contractor;
+  fname  | age 
+---------+-----
+ rahul   |  26
+ rahul   |  40
+ rahul   |  26
+ rahul   |  30
+ rahul   |  22
+ mohit   |  26
+ mohit   |  40
+ mohit   |  26
+ mohit   |  30
+ mohit   |  22
+ krishna |  26
+ krishna |  40
+ krishna |  26
+ krishna |  30
+
 ```
 ## Inbuild function:
 In PostgreSQL, an "inbuilt function" refers to a pre-defined operation that you can use in your SQL queries to perform specific tasks. These functions are already built into the database system.
@@ -891,4 +967,4 @@ keenable=# SELECT 'Hello ' || 'World' AS concatenated_string;
 ```
 # Reference link
 https://youtube.com/playlist?list=PLzAy3QBHoWZdxPXkD7UVymWm_Do3IdzwQ&si=ANT8eCKmB157ng9U
-
+https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-inner-join/
