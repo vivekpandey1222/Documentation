@@ -118,24 +118,23 @@ Minio is an open-source object storage server that is compatible with S3. Minio 
   
 * **Object Storage**: Object storage stores the file as a whole and does not devide them. Like- Drive
 * **Block Storage**: Block storage is a type of data storage that breaks down data into blocks and stores each block as a separate piece. Each block can be independently managed and accessed.
-* **File Storage**: A hiorarchical storage methedology used to orgnize and store data on a computer. Data is saved in filw inside listed witin other folder. 
+* **File Storage**: A hiorarchical storage used to orgnize and store data on a computer. Data is saved in filw inside listed witin other folder. 
 
 **How object storage work:**
 
-The concept of object storage is similar to that of a standard Unix file system, but instead of directories and files, we use buckets and objects.Buckets can be nested into a hierarchy just like directories, and objects can be thought of as just a collection of bytes. Those collections can be arbitrary byte arrays or normal files like images, PDFs, and more.
+The concept of object storage is similar to file system, but instead of directories and files, we use buckets and objects.Buckets can be just like directories, and objects can be normal files like images, PDFs, and more.
 
 **How does minio work:**
 * When you upload an object minio it devide into smaller part called shards.
 * The shards are then distributed accros multiple server in the minio cluster.
 * Minio uses ensure coding ensure that your data is protected from disk failure.
 * When you need to access an object, minio retriev the shards from server where they are store and reconstruct the object.
-* 
+  
 **Shards**: Shards in MinIO refer to breaking down and distributing data into smaller pieces.
 
 **Benifit**:
 * It is free and open source.
 * It is much cheaper then Amazon S3 specially for large data set.
-* Minio encrypt data using AES-256 encryption.
 * Minio is high performance and reliable storage system.
 * High avalibility, Data redundancy, S3 API compatibility.
   
