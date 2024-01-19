@@ -1,4 +1,4 @@
-# Installation of PostgreSQL
+# PostgreSQL Documentation
 
 ## Table of Contents
 [Linux Distribution](#linux-distribution)
@@ -628,7 +628,10 @@ keenable=# select * from intern where age between 21 and  23;
 ```
 Create view keen(view name) as select fname age from intern;
 ```
-**Inner Join:** A JOIN in PostgreSQL is used to combine two or more tables based on a related column between them.
+**Join**: A JOIN in PostgreSQL is used to combine two or more tables based on a related column between them.
+
+**Inner Join:** The INNER JOIN keyword selects records that have matching values in both tables.
+
 ```
 select intern.fname, contractor.age from intern inner join contractor on intern.id=contractor.id;
 ```
