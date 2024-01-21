@@ -58,9 +58,7 @@ Reading state information... Done
 podman is already the newest version (100:3.4.2-5).
 0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
 ```
-**- sudo:** This part of the command is like saying "I want to do something important." It
-stands for "superuser do" and allows you to perform tasks that affect your computer's
-system, like installing software.
+**- sudo:** This command is used to excecute other command as a supuruser.
 
 **- apt:** It is used to handle the installation, removal, and upgrading of software packages.
 
@@ -81,7 +79,7 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 **Which**: Which command is used to locate the full path of the executable file.
 
 ## PostgreSQL:
-**Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It is an advanced Enterprise class. It supports SQL (relational) and json (non-relational).
+**Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It supports relational and non-relational.
 
 **Features:-** Table inheritance user-define type , foreign key view, rule, subquery, asynchronous, replication(fast of db).
 
