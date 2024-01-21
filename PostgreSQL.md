@@ -247,7 +247,7 @@ root@48ef2005155e:/#
 **\q:** This is a shorthand for the "quit" command in psql.
 It is used to exit the PostgreSQL interactive terminal (psql) and return to the regular command prompt or shell.
 
-**Schema:** A schema is a logical way to organise and structure data.  It defines the blueprint for how data is stored, organised, and related to one another in a database system. A schema includes the specifications for tables, columns, data types, relationships, and constraints, providing a framework for the database's structure.
+**Schema:** A schema is a logical way to organise and structure data.  It provides a way to organize and group related objects within a database, helping to avoid naming conflicts.
 
 Now create a schema-
 ```
@@ -260,7 +260,7 @@ CREATE SCHEMA
 keenable=#
 ```
 ## Table:
-A table in PostgreSQL is like a spreadsheet where information is organized into rows and columns.Each row represents a specific thing, like a customer or product, and each column holds a particular piece of information, such as a name or price. Tables help keep data organised, making it easier to find and manage.
+A table is like a spreadsheet where information is organized into rows and columns.Tables help keep data organised, making it easier to find and manage.
 
 Now create a table-
 ```
