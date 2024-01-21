@@ -57,7 +57,7 @@ UBUNTU_CODENAME=focal
 ```
 **Version**: is like a specific edition of software or a product. It often represents a set of features or changes. Like Ubuntu version-20.04, 22.04.
 
-**Release**:when a specific version of software or a product is made officially available to the public.
+**Release**:when a specific version of software is made officially available to the public.
 
 **cat**-cat stands for "concatenate" and Its primary purpose is to concatenate and display the content of files.
 
@@ -121,7 +121,7 @@ computer.
 
 **software-properties-common**:It provides common tools for managing software repositories.
 
-**uidmap**: It likely provides functionality related to user ID mapping.
+**uidmap**: It likely provides functionality related to user ID.
 
 **Adding repository**
 ```
@@ -141,7 +141,7 @@ stands for "superuser do".
 
 **deb**: Indicates that this is a binary package repository.
 
-**http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/**: This is the URL of the repository, pointing to the OpenSUSE Kubic libcontainers stable packages for Ubuntu 20.04.
+**http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/**: This is the URL of the repository, pointing to the  Kubic libcontainers stable packages for Ubuntu 20.04.
 
 **/etc/apt/sources.list.d/**: This is directory where The repository being added.
 
@@ -258,7 +258,7 @@ Nagios is a monitoring system used for keeping track of the health and performan
 
  
 **Why Nagios**:
-Nagios is an open-source monitoring tool that monitors networks, servers, and applications. Its popularity stems from its flexibility, real-time alerts, and capability to store historical data. Nagios provides the freedom to customize and aids in taking proactive measures.
+Nagios is an open-source monitoring tool that monitors networks, servers, and applications. Its popularity stems from its flexibility, real-time alerts, and capability to store historical data.
 
 **Functionality**:
 * Detect all files of network or server issues.
