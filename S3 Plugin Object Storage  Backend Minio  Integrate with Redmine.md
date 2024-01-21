@@ -65,9 +65,7 @@ Reading state information... Done
 1 package can be upgraded. Run 'apt list --upgradable' to see it.
 vivek@vivek-HP-EliteBook-840-G2:~$ 
 ```
-**sudo:** This part of the command is like saying "I want to do something important." It
-stands for "superuser do" and allows you to perform tasks that affect your computer's
-system, like installing software.
+**sudo:** This command is used to allows to execute other commands with superuser privileges.
 
 **apt:** It is used to handle the installation, removal, and upgrading of software packages.
 
