@@ -86,9 +86,7 @@ Reading state information... Done
 podman is already the newest version (100:3.4.2-5).
 0 upgraded, 0 newly installed, 0 to remove and 9 not upgraded.
 ```
-**sudo:** This part of the command is like saying "I want to do something important." It
-stands for "superuser do" and allows you to perform tasks that affect your computer's
-system, like installing software.
+**sudo:**This command is used to allows to execute other commands with superuser privileges.
 
 **apt:** It is used to handle the installation, removal, and upgrading of software packages.
 
