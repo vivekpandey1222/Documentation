@@ -81,8 +81,6 @@ vivek@vivek-HP-EliteBook-840-G2:~$
 ## PostgreSQL:
 **Definition:-**  PostgreSQL is an open source relational database management system  that performs a variety of tasks related to storing, organising, and retrieving structured data. It supports relational and non-relational.
 
-**Features:-** Table inheritance user-define type , foreign key view, rule, subquery, asynchronous, replication(fast of db).
-
 ## Setup PostgreSQL:
 
 **Search the Postgres Image in podman**:
