@@ -202,7 +202,7 @@ postgres=# \l
 
 **l :** This is a shorthand for the "list" command in psql.
 
-**Database:**  A database is like a digital filing cabinet where you can store and organise information. It's a structured collection of data that can be easily accessed, managed, and updated.
+**Database:**  A database is like a place where you can store and organise information. It's a structured collection of data that can be easily accessed, managed, and updated.
 
 Now we create database -
 ```
